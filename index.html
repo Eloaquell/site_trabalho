@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVerse - Seus Filmes Favoritos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Movie<span class="highlight">Verse</span></a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Início</a>
+                <a href="index2.html" class="nav-link">Em Breve</a>
+            </nav>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Buscar filmes, séries..." id="search-input">
+                <button aria-label="Buscar" onclick="searchMovie()">&#128269;</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+         
+        <section class="hero-section" style="background-image: url('assets/duna-2-banner.jpg');">
+            <div class="hero-content">
+                <h1 class="hero-title">Duna: Parte Dois</h1>
+                
+                <p class="hero-synopsis">O épico de ficção científica continua, com Paul Atreides unindo-se aos Fremen para se vingar daqueles que destruíram sua família.</p>
+               
+                <a href="#" class="btn btn-primary">Assistir Trailer</a>
+            </div>
+        </section>
+
+        <section class="trending-section container">
+            <h2 class="section-title">Em Alta Agora</h2>
+            <div class="movie-gallery">
+                <div class="movie-card">
+                    <img src="images/Oppenheimer.png" alt="Pôster de Oppenheimer">
+                    <h3 class="movie-title">Oppenheimer</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/Godzilla Minus One.png" alt="Pôster de Godzilla Minus One">
+                    <h3 class="movie-title">Godzilla Minus One</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/Através do Aranhaverso.png" alt="Pôster de Homem-Aranha: Através do Aranhaverso">
+                    <h3 class="movie-title">Homem-Aranha: Através do Aranhaverso</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/barbie.png" alt="Pôster de Barbie">
+                    <h3 class="movie-title">Barbie</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/Baba Yaga.png" alt="Pôster de John Wick 4: Baba Yaga">
+                    <h3 class="movie-title">John Wick 4: Baba Yaga</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/guardioes-da-galaxia-vol-3.png" alt="Pôster de Guardiões da Galáxia Vol. 3">
+                    <h3 class="movie-title">Guardiões da Galáxia Vol. 3</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/Wonka.png" alt="Pôster de Wonka">
+                    <h3 class="movie-title">Wonka</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/Impossível.png" alt="Pôster de Missão: Impossível - Acerto de Contas Parte Um">
+                    <h3 class="movie-title">Missão: Impossível - Acerto de Contas Parte Um</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/Killers of the Flower Moon.png" alt="Pôster de Killers of the Flower Moon">
+                    <h3 class="movie-title">Killers of the Flower Moon</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/supermario.png" alt="Pôster de Super Mario Bros. - O Filme">
+                    <h3 class="movie-title">Super Mario Bros. - O Filme</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+                <div class="movie-card">
+                    <img src="images/opapa.png" alt="Pôster de O Exorcista do Papa">
+                    <h3 class="movie-title">O Exorcista do Papa</h3>
+                    <span class="movie-year">2023</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="genres-section container">
+            <h2 class="section-title">Gêneros Populares</h2>
+            <div class="genres-list">
+                <a href="#" class="genre-tag">Ação</a>
+                <a href="#" class="genre-tag">Comédia</a>
+                <a href="#" class="genre-tag">Suspense</a>
+                <a href="#" class="genre-tag">Animação</a>
+                <a href="#" class="genre-tag">Sci-Fi</a>
+                <a href="#" class="genre-tag">Drama</a>
+                <a href="#" class="genre-tag">Terror</a>
+                <a href="#" class="genre-tag">Fantasia</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+            <p>&copy; 2024 MovieVerse. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

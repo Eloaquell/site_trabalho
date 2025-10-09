@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVerse - Resultados da Busca</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Movie<span class="highlight">Verse</span></a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index2.html" class="nav-link">Em Breve</a>
+            </nav>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Buscar filmes, séries..." id="search-input">
+                <button aria-label="Buscar" onclick="searchMovie()">&#128269;</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-results-section container">
+            <h1 class="section-title main-title" id="results-title">Resultados da Busca para...</h1>
+            
+
+
+            <div class="results-content" id="results-container">
+    <p class="search-info">Exibindo resultados simulados de A a Z para demonstrar a estrutura da galeria. (Em um sistema real, somente a letra pesquisada apareceria).</p>
+
+    <div class="movie-gallery">
+        
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 20px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com A</h2>
+        <div class="movie-card">
+            <img src="images/aorigem.png" alt="Pôster de A Origem">
+            <h3 class="movie-title">A Origem</h3>
+            <span class="movie-year">2010, Sci-Fi/Ação</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/alien.png" alt="Pôster de Alien">
+            <h3 class="movie-title">Alien</h3>
+            <span class="movie-year">1979, Terror/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/avatar.png" alt="Pôster de Avatar">
+            <h3 class="movie-title">Avatar</h3>
+            <span class="movie-year">2009, Fantasia/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/acgegada.png" alt="Pôster de A Chegada">
+            <h3 class="movie-title">A Chegada</h3>
+            <span class="movie-year">2016, Drama/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/argo.png" alt="Pôster de Argo">
+            <h3 class="movie-title">Argo</h3>
+            <span class="movie-year">2012, Thriller/Drama</span>
+        </div>
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com B</h2>
+        <div class="movie-card">
+            <img src="images/batman.png" alt="Pôster de Batman: O Cavaleiro das Trevas">
+            <h3 class="movie-title">Batman: O Cavaleiro das Trevas</h3>
+            <span class="movie-year">2008, Ação/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/blade.png" alt="Pôster de Blade Runner 2049">
+            <h3 class="movie-title">Blade Runner 2049</h3>
+            <span class="movie-year">2017, Sci-Fi/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/birdman.png" alt="Pôster de Birdman">
+            <h3 class="movie-title">Birdman</h3>
+            <span class="movie-year">2014, Comédia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/buscaimplacavel.png" alt="Pôster de Busca Implacável">
+            <h3 class="movie-title">Busca Implacável</h3>
+            <span class="movie-year">2008, Ação/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/brilhoeterno.png" alt="Pôster de Brilho Eterno de Uma Mente Sem Lembranças">
+            <h3 class="movie-title">Brilho Eterno de Uma Mente Sem Lembranças</h3>
+            <span class="movie-year">2004, Romance/Sci-Fi</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com C</h2>
+        <div class="movie-card">
+            <img src="images/clubedaluta.png" alt="Pôster de Clube da Luta">
+            <h3 class="movie-title">Clube da Luta</h3>
+            <span class="movie-year">1999, Drama/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/cisnenegro.png" alt="Pôster de Cisne Negro">
+            <h3 class="movie-title">Cisne Negro</h3>
+            <span class="movie-year">2010, Thriller/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/corra.png" alt="Pôster de Corra!">
+            <h3 class="movie-title">Corra!</h3>
+            <span class="movie-year">2017, Terror/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/caesdealuguel.png" alt="Pôster de Cães de Aluguel">
+            <h3 class="movie-title">Cães de Aluguel</h3>
+            <span class="movie-year">1992, Crime/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/closerperto.png" alt="Pôster de Closer: Perto Demais">
+            <h3 class="movie-title">Closer: Perto Demais</h3>
+            <span class="movie-year">2004, Drama/Romance</span>
+        </div>
+        
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com D</h2>
+        <div class="movie-card">
+            <img src="images/duna.png" alt="Pôster de Duna">
+            <h3 class="movie-title">Duna</h3>
+            <span class="movie-year">2021, Sci-Fi/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/divertidamente.png" alt="Pôster de Divertida Mente">
+            <h3 class="movie-title">Divertida Mente</h3>
+            <span class="movie-year">2015, Animação/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/django.png" alt="Pôster de Django Livre">
+            <h3 class="movie-title">Django Livre</h3>
+            <span class="movie-year">2012, Faroeste/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/donnie.png" alt="Pôster de Donnie Darko">
+            <h3 class="movie-title">Donnie Darko</h3>
+            <span class="movie-year">2001, Mistério/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/drive.png" alt="Pôster de Drive">
+            <h3 class="movie-title">Drive</h3>
+            <span class="movie-year">2011, Crime/Ação</span>
+        </div>
+        
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com E</h2>
+        <div class="movie-card">
+            <img src="images/eraumavez.png" alt="Pôster de Era Uma Vez em Hollywood">
+            <h3 class="movie-title">Era Uma Vez em Hollywood</h3>
+            <span class="movie-year">2019, Drama/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/exorcista.png" alt="Pôster de O Exorcista">
+            <h3 class="movie-title">O Exorcista</h3>
+            <span class="movie-year">1973, Terror/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/extraterrestre.png" alt="Pôster de E.T. O Extraterrestre">
+            <h3 class="movie-title">E.T. O Extraterrestre</h3>
+            <span class="movie-year">1982, Fantasia/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/encontros.png" alt="Pôster de Encontros e Desencontros">
+            <h3 class="movie-title">Encontros e Desencontros</h3>
+            <span class="movie-year">2003, Drama/Romance</span>
+        </div>
+        <div class="movie-card">
+            <img src="images/oenigma.png" alt="Pôster de O Enigma de Outro Mundo">
+            <h3 class="movie-title">O Enigma de Outro Mundo</h3>
+            <span class="movie-year">1982, Terror/Sci-Fi</span>
+        </div>
+        
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com F</h2>
+        <div class="movie-card">
+            <img src="assets/poster-f1.jpg" alt="Pôster de Forrest Gump: O Contador de Histórias">
+            <h3 class="movie-title">Forrest Gump: O Contador de Histórias</h3>
+            <span class="movie-year">1994, Drama/Romance</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-f2.jpg" alt="Pôster de Fábrica de Sonhos">
+            <h3 class="movie-title">Fábrica de Sonhos</h3>
+            <span class="movie-year">2010, Ação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-f3.jpg" alt="Pôster de Fogo Contra Fogo">
+            <h3 class="movie-title">Fogo Contra Fogo</h3>
+            <span class="movie-year">1995, Crime/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-f4.jpg" alt="Pôster de Frankenstein">
+            <h3 class="movie-title">Frankenstein</h3>
+            <span class="movie-year">1931, Terror/Clássico</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-f5.jpg" alt="Pôster de Fargo">
+            <h3 class="movie-title">Fargo</h3>
+            <span class="movie-year">1996, Comédia/Crime</span>
+        </div>
+        
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com G</h2>
+        <div class="movie-card">
+            <img src="assets/poster-g1.jpg" alt="Pôster de Gladiador">
+            <h3 class="movie-title">Gladiador</h3>
+            <span class="movie-year">2000, Ação/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-g2.jpg" alt="Pôster de Gravidade">
+            <h3 class="movie-title">Gravidade</h3>
+            <span class="movie-year">2013, Sci-Fi/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-g3.jpg" alt="Pôster de Ghostbusters">
+            <h3 class="movie-title">Ghostbusters</h3>
+            <span class="movie-year">1984, Comédia/Fantasia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-g4.jpg" alt="Pôster de Garota Exemplar">
+            <h3 class="movie-title">Garota Exemplar</h3>
+            <span class="movie-year">2014, Thriller/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-g5.jpg" alt="Pôster de Gattaca: A Experiência Genética">
+            <h3 class="movie-title">Gattaca: A Experiência Genética</h3>
+            <span class="movie-year">1997, Sci-Fi/Drama</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com H</h2>
+        <div class="movie-card">
+            <img src="assets/poster-h1.jpg" alt="Pôster de Homem-Aranha: No Aranhaverso">
+            <h3 class="movie-title">Homem-Aranha: No Aranhaverso</h3>
+            <span class="movie-year">2018, Animação/Ação</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-h2.jpg" alt="Pôster de Hotel Ruanda">
+            <h3 class="movie-title">Hotel Ruanda</h3>
+            <span class="movie-year">2004, Drama/Guerra</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-h3.jpg" alt="Pôster de High Fidelity">
+            <h3 class="movie-title">High Fidelity</h3>
+            <span class="movie-year">2000, Comédia/Romance</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-h4.jpg" alt="Pôster de Her">
+            <h3 class="movie-title">Her</h3>
+            <span class="movie-year">2013, Romance/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-h5.jpg" alt="Pôster de Hereditário">
+            <h3 class="movie-title">Hereditário</h3>
+            <span class="movie-year">2018, Terror/Drama</span>
+        </div>
+           <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com I</h2>
+        <div class="movie-card">
+            <img src="assets/poster-i1.jpg" alt="Pôster de Interestelar">
+            <h3 class="movie-title">Interestelar</h3>
+            <span class="movie-year">2014, Sci-Fi/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-i2.jpg" alt="Pôster de Ilha do Medo">
+            <h3 class="movie-title">Ilha do Medo</h3>
+            <span class="movie-year">2010, Mistério/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-i3.jpg" alt="Pôster de O Iluminado">
+            <h3 class="movie-title">O Iluminado</h3>
+            <span class="movie-year">1980, Terror/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-i4.jpg" alt="Pôster de Invencível">
+            <h3 class="movie-title">Invencível</h3>
+            <span class="movie-year">2014, Biografia/Guerra</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-i5.jpg" alt="Pôster de Irmão Urso">
+            <h3 class="movie-title">Irmão Urso</h3>
+            <span class="movie-year">2003, Animação/Família</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com J</h2>
+        <div class="movie-card">
+            <img src="assets/poster-j1.jpg" alt="Pôster de Joker">
+            <h3 class="movie-title">Joker</h3>
+            <span class="movie-year">2019, Drama/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-j2.jpg" alt="Pôster de Jurassic Park">
+            <h3 class="movie-title">Jurassic Park</h3>
+            <span class="movie-year">1993, Sci-Fi/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-j3.jpg" alt="Pôster de Jojo Rabbit">
+            <h3 class="movie-title">Jojo Rabbit</h3>
+            <span class="movie-year">2019, Comédia/Guerra</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-j4.jpg" alt="Pôster de Jackie Brown">
+            <h3 class="movie-title">Jackie Brown</h3>
+            <span class="movie-year">1997, Crime/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-j5.jpg" alt="Pôster de Jogos Vorazes">
+            <h3 class="movie-title">Jogos Vorazes</h3>
+            <span class="movie-year">2012, Ação/Sci-Fi</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com K</h2>
+        <div class="movie-card">
+            <img src="assets/poster-k1.jpg" alt="Pôster de Kill Bill: Volume 1">
+            <h3 class="movie-title">Kill Bill: Volume 1</h3>
+            <span class="movie-year">2003, Ação/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-k2.jpg" alt="Pôster de King Kong">
+            <h3 class="movie-title">King Kong</h3>
+            <span class="movie-year">2005, Aventura/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-k3.jpg" alt="Pôster de A Lista de Schindler">
+            <h3 class="movie-title">A Lista de Schindler (K-simulado)</h3>
+            <span class="movie-year">1993, Histórico/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-k4.jpg" alt="Pôster de Kick-Ass">
+            <h3 class="movie-title">Kick-Ass</h3>
+            <span class="movie-year">2010, Ação/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-k5.jpg" alt="Pôster de K-PAX - O Caminho da Luz">
+            <h3 class="movie-title">K-PAX - O Caminho da Luz</h3>
+            <span class="movie-year">2001, Mistério/Sci-Fi</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com L</h2>
+        <div class="movie-card">
+            <img src="assets/poster-l1.jpg" alt="Pôster de La La Land">
+            <h3 class="movie-title">La La Land: Cantando Estações</h3>
+            <span class="movie-year">2016, Musical/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-l2.jpg" alt="Pôster de Laranja Mecânica">
+            <h3 class="movie-title">Laranja Mecânica</h3>
+            <span class="movie-year">1971, Sci-Fi/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-l3.jpg" alt="Pôster de Lawrence da Arábia">
+            <h3 class="movie-title">Lawrence da Arábia</h3>
+            <span class="movie-year">1962, Biografia/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-l4.jpg" alt="Pôster de Livre">
+            <h3 class="movie-title">Livre</h3>
+            <span class="movie-year">2014, Biografia/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-l5.jpg" alt="Pôster de Logan">
+            <h3 class="movie-title">Logan</h3>
+            <span class="movie-year">2017, Ação/Drama</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com M</h2>
+        <div class="movie-card">
+            <img src="assets/poster-m1.jpg" alt="Pôster de Matrix">
+            <h3 class="movie-title">Matrix</h3>
+            <span class="movie-year">1999, Sci-Fi/Ação</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-m2.jpg" alt="Pôster de Mad Max: Estrada da Fúria">
+            <h3 class="movie-title">Mad Max: Estrada da Fúria</h3>
+            <span class="movie-year">2015, Ação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-m3.jpg" alt="Pôster de Meu Malvado Favorito">
+            <h3 class="movie-title">Meu Malvado Favorito</h3>
+            <span class="movie-year">2010, Animação/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-m4.jpg" alt="Pôster de Minority Report">
+            <h3 class="movie-title">Minority Report</h3>
+            <span class="movie-year">2002, Sci-Fi/Ação</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-m5.jpg" alt="Pôster de Moon">
+            <h3 class="movie-title">Moon</h3>
+            <span class="movie-year">2009, Sci-Fi/Drama</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com N</h2>
+        <div class="movie-card">
+            <img src="assets/poster-n1.jpg" alt="Pôster de Na Natureza Selvagem">
+            <h3 class="movie-title">Na Natureza Selvagem</h3>
+            <span class="movie-year">2007, Biografia/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-n2.jpg" alt="Pôster de Nós">
+            <h3 class="movie-title">Nós</h3>
+            <span class="movie-year">2019, Terror/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-n3.jpg" alt="Pôster de O Nevoeiro">
+            <h3 class="movie-title">O Nevoeiro</h3>
+            <span class="movie-year">2007, Terror/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-n4.jpg" alt="Pôster de Nove Rainhas">
+            <h3 class="movie-title">Nove Rainhas</h3>
+            <span class="movie-year">2000, Thriller/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-n5.jpg" alt="Pôster de O Novato">
+            <h3 class="movie-title">O Novato</h3>
+            <span class="movie-year">2002, Esporte/Drama</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com O</h2>
+        <div class="movie-card">
+            <img src="assets/poster-o1.jpg" alt="Pôster de Oppenheimer">
+            <h3 class="movie-title">Oppenheimer</h3>
+            <span class="movie-year">2023, Biografia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-o2.jpg" alt="Pôster de O Poderoso Chefão">
+            <h3 class="movie-title">O Poderoso Chefão</h3>
+            <span class="movie-year">1972, Crime/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-o3.jpg" alt="Pôster de Oldboy">
+            <h3 class="movie-title">Oldboy</h3>
+            <span class="movie-year">2003, Ação/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-o4.jpg" alt="Pôster de O Labirinto do Fauno">
+            <h3 class="movie-title">O Labirinto do Fauno</h3>
+            <span class="movie-year">2006, Fantasia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-o5.jpg" alt="Pôster de O Rei Leão">
+            <h3 class="movie-title">O Rei Leão</h3>
+            <span class="movie-year">1994, Animação/Musical</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com P</h2>
+        <div class="movie-card">
+            <img src="assets/poster-p1.jpg" alt="Pôster de Parasita">
+            <h3 class="movie-title">Parasita</h3>
+            <span class="movie-year">2019, Comédia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-p2.jpg" alt="Pôster de Pulp Fiction">
+            <h3 class="movie-title">Pulp Fiction: Tempo de Violência</h3>
+            <span class="movie-year">1994, Crime/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-p3.jpg" alt="Pôster de Psicose">
+            <h3 class="movie-title">Psicose</h3>
+            <span class="movie-year">1960, Terror/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-p4.jpg" alt="Pôster de O Pianista">
+            <h3 class="movie-title">O Pianista</h3>
+            <span class="movie-year">2002, Biografia/Guerra</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-p5.jpg" alt="Pôster de Prenda-me Se For Capaz">
+            <h3 class="movie-title">Prenda-me Se For Capaz</h3>
+            <span class="movie-year">2002, Crime/Biografia</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com Q</h2>
+        <div class="movie-card">
+            <img src="assets/poster-q1.jpg" alt="Pôster de Quase Famosos">
+            <h3 class="movie-title">Quase Famosos</h3>
+            <span class="movie-year">2000, Comédia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-q2.jpg" alt="Pôster de Quem Quer Ser um Milionário?">
+            <h3 class="movie-title">Quem Quer Ser um Milionário?</h3>
+            <span class="movie-year">2008, Drama/Romance</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-q3.jpg" alt="Pôster de Queimando Tudo">
+            <h3 class="movie-title">Queimando Tudo (Queimado)</h3>
+            <span class="movie-year">2014, Drama/Musical</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-q4.jpg" alt="Pôster de Quatro Irmãos">
+            <h3 class="movie-title">Quatro Irmãos</h3>
+            <span class="movie-year">2005, Ação/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-q5.jpg" alt="Pôster de Que Horas Ela Volta?">
+            <h3 class="movie-title">Que Horas Ela Volta?</h3>
+            <span class="movie-year">2015, Drama/Comédia</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com R</h2>
+        <div class="movie-card">
+            <img src="assets/poster-r1.jpg" alt="Pôster de Resgate do Soldado Ryan">
+            <h3 class="movie-title">Resgate do Soldado Ryan</h3>
+            <span class="movie-year">1998, Guerra/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-r2.jpg" alt="Pôster de Rocky">
+            <h3 class="movie-title">Rocky: Um Lutador</h3>
+            <span class="movie-year">1976, Drama/Esporte</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-r3.jpg" alt="Pôster de Réquiem Para um Sonho">
+            <h3 class="movie-title">Réquiem Para um Sonho</h3>
+            <span class="movie-year">2000, Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-r4.jpg" alt="Pôster de Rei Arthur: A Lenda da Espada">
+            <h3 class="movie-title">Rei Arthur: A Lenda da Espada</h3>
+            <span class="movie-year">2017, Aventura/Fantasia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-r5.jpg" alt="Pôster de Rango">
+            <h3 class="movie-title">Rango</h3>
+            <span class="movie-year">2011, Animação/Comédia</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com S</h2>
+        <div class="movie-card">
+            <img src="assets/poster-s1.jpg" alt="Pôster de Seven: Os Sete Crimes Capitais">
+            <h3 class="movie-title">Seven: Os Sete Crimes Capitais</h3>
+            <span class="movie-year">1995, Crime/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-s2.jpg" alt="Pôster de Star Wars: Uma Nova Esperança">
+            <h3 class="movie-title">Star Wars: Uma Nova Esperança</h3>
+            <span class="movie-year">1977, Sci-Fi/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-s3.jpg" alt="Pôster de Sociedade dos Poetas Mortos">
+            <h3 class="movie-title">Sociedade dos Poetas Mortos</h3>
+            <span class="movie-year">1989, Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-s4.jpg" alt="Pôster de Sobrenatural">
+            <h3 class="movie-title">Sobrenatural</h3>
+            <span class="movie-year">2010, Terror/Mistério</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-s5.jpg" alt="Pôster de Spotlight: Segredos Revelados">
+            <h3 class="movie-title">Spotlight: Segredos Revelados</h3>
+            <span class="movie-year">2015, Drama/Histórico</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com T</h2>
+        <div class="movie-card">
+            <img src="assets/poster-t1.jpg" alt="Pôster de Titanic">
+            <h3 class="movie-title">Titanic</h3>
+            <span class="movie-year">1997, Romance/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-t2.jpg" alt="Pôster de Taxi Driver">
+            <h3 class="movie-title">Taxi Driver</h3>
+            <span class="movie-year">1976, Drama/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-t3.jpg" alt="Pôster de Toy Story">
+            <h3 class="movie-title">Toy Story</h3>
+            <span class="movie-year">1995, Animação/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-t4.jpg" alt="Pôster de Três Anúncios Para um Crime">
+            <h3 class="movie-title">Três Anúncios Para um Crime</h3>
+            <span class="movie-year">2017, Drama/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-t5.jpg" alt="Pôster de Tropa de Elite">
+            <h3 class="movie-title">Tropa de Elite</h3>
+            <span class="movie-year">2007, Ação/Crime</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com U</h2>
+        <div class="movie-card">
+            <img src="assets/poster-u1.jpg" alt="Pôster de Um Sonho de Liberdade">
+            <h3 class="movie-title">Um Sonho de Liberdade</h3>
+            <span class="movie-year">1994, Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-u2.jpg" alt="Pôster de Uma Mente Brilhante">
+            <h3 class="movie-title">Uma Mente Brilhante</h3>
+            <span class="movie-year">2001, Biografia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-u3.jpg" alt="Pôster de Up: Altas Aventuras">
+            <h3 class="movie-title">Up: Altas Aventuras</h3>
+            <span class="movie-year">2009, Animação/Aventura</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-u4.jpg" alt="Pôster de O Ultimato Bourne">
+            <h3 class="movie-title">O Ultimato Bourne</h3>
+            <span class="movie-year">2007, Ação/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-u5.jpg" alt="Pôster de Um Lugar Silencioso">
+            <h3 class="movie-title">Um Lugar Silencioso</h3>
+            <span class="movie-year">2018, Terror/Sci-Fi</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com V</h2>
+        <div class="movie-card">
+            <img src="assets/poster-v1.jpg" alt="Pôster de Vingadores: Ultimato">
+            <h3 class="movie-title">Vingadores: Ultimato</h3>
+            <span class="movie-year">2019, Ação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-v2.jpg" alt="Pôster de V de Vingança">
+            <h3 class="movie-title">V de Vingança</h3>
+            <span class="movie-year">2006, Ação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-v3.jpg" alt="Pôster de A Vida É Bela">
+            <h3 class="movie-title">A Vida É Bela</h3>
+            <span class="movie-year">1997, Comédia/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-v4.jpg" alt="Pôster de Velocidade Máxima">
+            <h3 class="movie-title">Velocidade Máxima</h3>
+            <span class="movie-year">1994, Ação/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-v5.jpg" alt="Pôster de Vidas à Deriva">
+            <h3 class="movie-title">Vidas à Deriva</h3>
+            <span class="movie-year">2018, Romance/Drama</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com W</h2>
+        <div class="movie-card">
+            <img src="assets/poster-w1.jpg" alt="Pôster de Whiplash: Em Busca da Perfeição">
+            <h3 class="movie-title">Whiplash: Em Busca da Perfeição</h3>
+            <span class="movie-year">2014, Drama/Musical</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-w2.jpg" alt="Pôster de Wall-E">
+            <h3 class="movie-title">Wall-E</h3>
+            <span class="movie-year">2008, Animação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-w3.jpg" alt="Pôster de O Lobo de Wall Street">
+            <h3 class="movie-title">O Lobo de Wall Street</h3>
+            <span class="movie-year">2013, Biografia/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-w4.jpg" alt="Pôster de Watchmen: O Filme">
+            <h3 class="movie-title">Watchmen: O Filme</h3>
+            <span class="movie-year">2009, Ação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-w5.jpg" alt="Pôster de O Último Samurai (Simulado W)">
+            <h3 class="movie-title">O Último Samurai (W-simulado)</h3>
+            <span class="movie-year">2003, Ação/Drama</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com X</h2>
+        <div class="movie-card">
+            <img src="assets/poster-x1.jpg" alt="Pôster de X-Men: Dias de um Futuro Esquecido">
+            <h3 class="movie-title">X-Men: Dias de um Futuro Esquecido</h3>
+            <span class="movie-year">2014, Ação/Sci-Fi</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-x2.jpg" alt="Pôster de XXX">
+            <h3 class="movie-title">XXX</h3>
+            <span class="movie-year">2002, Ação/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-x3.jpg" alt="Pôster de Xanadu">
+            <h3 class="movie-title">Xanadu</h3>
+            <span class="movie-year">1980, Musical/Fantasia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-x4.jpg" alt="Pôster de A Grande Escolha (Simulado X)">
+            <h3 class="movie-title">A Grande Escolha (X-simulado)</h3>
+            <span class="movie-year">2014, Drama/Esporte</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-x5.jpg" alt="Pôster de Xuxa e os Duendes">
+            <h3 class="movie-title">Xuxa e os Duendes</h3>
+            <span class="movie-year">2001, Fantasia/Família</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com Y</h2>
+        <div class="movie-card">
+            <img src="assets/poster-y1.jpg" alt="Pôster de Yesterday">
+            <h3 class="movie-title">Yesterday</h3>
+            <span class="movie-year">2019, Comédia/Musical</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-y2.jpg" alt="Pôster de Você Nunca Esteve Realmente Aqui">
+            <h3 class="movie-title">Você Nunca Esteve Realmente Aqui</h3>
+            <span class="movie-year">2017, Thriller/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-y3.jpg" alt="Pôster de Yentl">
+            <h3 class="movie-title">Yentl</h3>
+            <span class="movie-year">1983, Musical/Drama</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-y4.jpg" alt="Pôster de Yakuza">
+            <h3 class="movie-title">Yakuza (Simulado)</h3>
+            <span class="movie-year">1974, Crime/Ação</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-y5.jpg" alt="Pôster de Yi Yi: Um a Dois">
+            <h3 class="movie-title">Yi Yi: Um a Dois</h3>
+            <span class="movie-year">2000, Drama/Romance</span>
+        </div>
+
+        <h2 class="section-title" style="grid-column: 1 / -1; margin-top: 40px; color: var(--color-text); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px;">Filmes com Z</h2>
+        <div class="movie-card">
+            <img src="assets/poster-z1.jpg" alt="Pôster de Zootopia">
+            <h3 class="movie-title">Zootopia: Essa Cidade É o Bicho</h3>
+            <span class="movie-year">2016, Animação/Comédia</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-z2.jpg" alt="Pôster de Zodíaco">
+            <h3 class="movie-title">Zodíaco</h3>
+            <span class="movie-year">2007, Mistério/Crime</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-z3.jpg" alt="Pôster de A Hora Mais Escura">
+            <h3 class="movie-title">A Hora Mais Escura (Zero Dark Thirty)</h3>
+            <span class="movie-year">2012, Drama/Thriller</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-z4.jpg" alt="Pôster de Zumbilândia">
+            <h3 class="movie-title">Zumbilândia</h3>
+            <span class="movie-year">2009, Comédia/Terror</span>
+        </div>
+        <div class="movie-card">
+            <img src="assets/poster-z5.jpg" alt="Pôster de Zoolander">
+            <h3 class="movie-title">Zoolander</h3>
+            <span class="movie-year">2001, Comédia</span>
+        </div>
+    </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+            <p>&copy; 2024 MovieVerse. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
