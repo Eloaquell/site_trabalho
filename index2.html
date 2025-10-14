@@ -4,107 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieVerse - Próximos Lançamentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">Movie<span class="highlight">Verse</span></a>
-            
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Início</a>
-                <a href="index2.html" class="nav-link active">Em Breve</a>
-            </nav>
-            
-            <div class="search-box">
-                <input type="text" placeholder="Buscar filmes, séries..." id="search-input">
-                <button aria-label="Buscar" onclick="searchMovie()">&#128269;</button>
-            </div>
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-text">Movie<span class="highlight">Verse</span></span>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="index2.html" class="active">Em Breve</a>
+        </nav>
+
+        <div class="search-container">
+            <input type="text" id="search-input-cs" placeholder="Buscar filmes...">
+            <button aria-label="Buscar"><i class="fas fa-search"></i></button>
         </div>
     </header>
 
     <main>
-        <section class="container">
-            <h2 class="section-title">Lançamentos Imperdíveis</h2>
-            <div class="movie-gallery">
+        <section class="coming-soon-section section-padding">
+            <h1 class="section-title main-title">Lançamentos Imperdíveis</h1>
+            
+            <div class="coming-soon-grid">
                 
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Coringa: Delírio a Dois'">
-                    <img src="https://image.tmdb.org/t/p/w200/sK8L2fE6fU7xO7z80D2k3M4x6bW.jpg" alt="Pôster de Coringa: Delírio a Dois">
-                    <div class="card-details">
-                        <h3 class="movie-title">Coringa: Delírio a Dois</h3>
-                        <span class="movie-date">Estreia: 04 de Outubro, 2024</span>
-                    </div>
-                </div>
-
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Gladiador 2'">
-                    <img src="https://image.tmdb.org/t/p/w200/tC3H4e5Uu9d75i10p2S1oY65nIu.jpg" alt="Pôster de Gladiador 2">
-                    <div class="card-details">
-                        <h3 class="movie-title">Gladiador 2</h3>
-                        <span class="movie-date">Estreia: 22 de Novembro, 2024</span>
-                    </div>
-                </div>
-
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Deadpool & Wolverine'">
-                    <img src="https://image.tmdb.org/t/p/w200/9oU9xW8O0pI1k91F11f42QoE3gV.jpg" alt="Pôster de Deadpool & Wolverine">
-                    <div class="card-details">
-                        <h3 class="movie-title">Deadpool & Wolverine</h3>
-                        <span class="movie-date">Estreia: 26 de Julho, 2024</span>
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/8c4e47y0o11uB4oH3R92uW7bK0P.jpg" alt="Pôster de Coringa: Delírio a Dois">
+                    <div class="card-info">
+                        <h3>Coringa: Delírio a Dois</h3>
+                        <p class="release-date">Data de Lançamento: 04 de Outubro de 2024</p>
+                        <p class="synopsis">A sequência musical explora a história de amor entre Arthur Fleck e Harley Quinn no Asilo Arkham. Um mergulho na insanidade.</p>
                     </div>
                 </div>
                 
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Mufasa: O Rei Leão'">
-                    <img src="https://image.tmdb.org/t/p/w200/vE8q1jXJm66l5kK3W8tM6lQ7e5O.jpg" alt="Pôster de Mufasa: O Rei Leão">
-                    <div class="card-details">
-                        <h3 class="movie-title">Mufasa: O Rei Leão</h3>
-                        <span class="movie-date">Estreia: 20 de Dezembro, 2024</span>
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/2Lh32S3gTzRz68n97K61iM80iJ7.jpg" alt="Pôster de Gladiador 2">
+                    <div class="card-info">
+                        <h3>Gladiador 2</h3>
+                        <p class="release-date">Data de Lançamento: 22 de Novembro de 2024</p>
+                        <p class="synopsis">Continuação do épico, focado em Lucius, sobrinho de Cômodo, 25 anos após os eventos do primeiro filme. Sangue e honra no Coliseu.</p>
                     </div>
                 </div>
 
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Divertida Mente 2'">
-                    <img src="https://image.tmdb.org/t/p/w200/kSgA78vH04vEa2Gk13y172oE21p.jpg" alt="Pôster de Divertida Mente 2">
-                    <div class="card-details">
-                        <h3 class="movie-title">Divertida Mente 2</h3>
-                        <span class="movie-date">Estreia: 14 de Junho, 2024</span>
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/9eB5140tE9tS0C6zW3c8eQ40L59.jpg" alt="Pôster de Deadpool & Wolverine">
+                    <div class="card-info">
+                        <h3>Deadpool & Wolverine</h3>
+                        <p class="release-date">Data de Lançamento: 26 de Julho de 2024</p>
+                        <p class="synopsis">O Mercenário Tagarela se junta ao icônico Wolverine em uma aventura maluca para salvar o multiverso da TVA. Classificação R garantida.</p>
                     </div>
                 </div>
 
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Furiosa: Uma Saga Mad Max'">
-                    <img src="https://image.tmdb.org/t/p/w200/iL8g7iR1H3n6lO1z237u64gOQ8k.jpg" alt="Pôster de Furiosa: Uma Saga Mad Max">
-                    <div class="card-details">
-                        <h3 class="movie-title">Furiosa: Uma Saga Mad Max</h3>
-                        <span class="movie-date">Estreia: 24 de Maio, 2024</span>
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/e9n8QoD0eYn6p13kO56g04qR8uM.jpg" alt="Pôster de Divertida Mente 2">
+                    <div class="card-info">
+                        <h3>Divertida Mente 2</h3>
+                        <p class="release-date">Data de Lançamento: 13 de Junho de 2024</p>
+                        <p class="synopsis">Riley agora é adolescente e a sala de controle da mente passa por uma demolição inesperada para dar espaço a novas Emoções. Ansiedade está no comando.</p>
                     </div>
                 </div>
-
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=Madame Teia'">
-                    <img src="https://image.tmdb.org/t/p/w200/5WcK7Vd2kQY71gE5Q4v09eO9r7x.jpg" alt="Pôster de Madame Teia">
-                    <div class="card-details">
-                        <h3 class="movie-title">Madame Teia</h3>
-                        <span class="movie-date">Estreia: 16 de Fevereiro, 2024</span>
+                
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/1X6o81jS7F6mF8qGg4QnK9V8G2M.jpg" alt="Pôster de Furiosa: Uma Saga Mad Max">
+                    <div class="card-info">
+                        <h3>Furiosa: Uma Saga Mad Max</h3>
+                        <p class="release-date">Data de Lançamento: 24 de Maio de 2024</p>
+                        <p class="synopsis">Uma prequela de Estrada da Fúria, explorando a origem da Imperatriz Furiosa e seu sequestro no Deserto, sendo forçada a sobreviver.</p>
                     </div>
                 </div>
-
-                <div class="movie-card" onclick="window.location.href='index4.html?movie=The War of the Rohirrim'">
-                    <img src="https://image.tmdb.org/t/p/w200/3oQv7jH8XyQfO5n7F9g5X5x5V9g.jpg" alt="Pôster de The Lord of the Rings: The War of the Rohirrim">
-                    <div class="card-details">
-                        <h3 class="movie-title">The War of the Rohirrim</h3>
-                        <span class="movie-date">Estreia: 13 de Dezembro, 2024</span>
+                
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/nK4D3gK82g1dJ3N6K0d8t2qP4xZ.jpg" alt="Pôster de Mufasa: O Rei Leão">
+                    <div class="card-info">
+                        <h3>Mufasa: O Rei Leão</h3>
+                        <p class="release-date">Data de Lançamento: 20 de Dezembro de 2024</p>
+                        <p class="synopsis">Explora a história de origem do pai de Simba e seu irmão Scar antes de se tornar o rei da Pedra do Reino. Mais um live-action da Disney.</p>
+                    </div>
+                </div>
+                
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/7F0Yc8bS19eE9N3eS89fUqNlYyB.jpg" alt="Pôster de The Lord of the Rings: The War of the Rohirrim">
+                    <div class="card-info">
+                        <h3>O Senhor dos Anéis: A Guerra dos Rohirrim</h3>
+                        <p class="release-date">Data de Lançamento: 13 de Dezembro de 2024</p>
+                        <p class="synopsis">Filme de animação que se aprofunda na história de Helm Hammerhand, o Rei de Rohan e a fortaleza do Abismo de Helm.</p>
+                    </div>
+                </div>
+                
+                <div class="coming-soon-card">
+                    <img src="https://image.tmdb.org/t/p/w500/oJ81s82m530X0n79P9p3qJj8k4e.jpg" alt="Pôster de Madame Teia">
+                    <div class="card-info">
+                        <h3>Madame Teia</h3>
+                        <p class="release-date">Lançado: Fev 2024 (Mantido como Exemplo)</p>
+                        <p class="synopsis">Cassandra Webb é uma paramédica de Nova York que ganha habilidades de clarividência. Ela deve proteger um trio de jovens destinadas a futuros poderosos.</p>
                     </div>
                 </div>
             </div>
+
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-social">
-                <a href="#" aria-label="Twitter">Twitter</a>
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="Facebook">Facebook</a>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
-            <p>&copy; 2024 MovieVerse. Todos os direitos reservados.</p>
+            <p>&copy; 2025 MovieVerse. Todos os direitos reservados. Projeto Fictício.</p>
         </div>
     </footer>
 

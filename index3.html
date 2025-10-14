@@ -3,52 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieVerse - Resultados da Busca</title>
+    <title>MovieVerse - Busca Alfabética</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .movie-card {
+            display: none; /* Por padrão, todos os filmes ficam escondidos */
+        }
+        .movie-gallery {
+            min-height: 80vh; 
+        }
+        .search-message {
+            text-align: center;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 50px;
+        }
+        /* Garantindo que o grid funcione mesmo com poucos itens */
+        .gallery-grid-search {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+        }
+        .search-results-dropdown {
+            /* Ocultar o dropdown de resultados do script.js nesta página, pois os resultados aparecem no grid */
+            display: none !important; 
+        }
+    </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">Movie<span class="highlight">Verse</span></a>
-            
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Início</a>
-                <a href="index2.html" class="nav-link">Em Breve</a>
-            </nav>
-            
-            <div class="search-box">
-                <input type="text" placeholder="Buscar filmes, séries..." id="search-input">
-                <button aria-label="Buscar" onclick="searchMovie()">&#128269;</button>
-            </div>
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-text">Movie<span class="highlight">Verse</span></span>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="index2.html">Em Breve</a>
+            <a href="index3.html" class="active">Busca</a> 
+        </nav>
+
+        <div class="search-container">
+            <input type="text" id="alphabetical-search-input" placeholder="Buscar 260 filmes...">
+            <button aria-label="Buscar"><i class="fas fa-search"></i></button>
         </div>
     </header>
 
     <main>
-        <section class="container">
-            <h1 class="section-title main-title" id="results-title">Resultados da Busca...</h1>
+        <section class="movie-gallery section-padding">
+            <h1 class="section-title">Busca Alfabética de Filmes (260 Filmes)</h1>
             
-            <div class="results-content">
-                <div class="movie-gallery" id="results-gallery">
-                    <p class="no-results-message">Carregando resultados...</p>
-                </div>
+            <p class="search-message" id="initial-message">Digite o nome de um filme na barra de busca acima para ver os resultados.</p>
+            <p class="search-message" id="no-results-message" style="display: none;">Nenhum filme encontrado com este nome. Tente novamente.</p>
+
+            <div class="gallery-grid-search" id="movie-list-container">
+                <div class="movie-card" data-title="Amor Sublime Amor"><img src="https://fictitious.com/posters/A1.jpg" alt="Pôster"><div class="movie-info"><h3>Amor Sublime Amor</h3><p class="movie-year">2021</p></div></div>
+                <div class="movie-card" data-title="A Chegada"><img src="images/acgegada.png" alt="Pôster"><div class="movie-info"><h3>A Chegada</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Apollo 13"><img src="https://fictitious.com/posters/A3.jpg" alt="Pôster"><div class="movie-info"><h3>Apollo 13</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="A Rede Social"><img src="https://fictitious.com/posters/A4.jpg" alt="Pôster"><div class="movie-info"><h3>A Rede Social</h3><p class="movie-year">2010</p></div></div>
+                <div class="movie-card" data-title="Alien, o Oitavo Passageiro"><img src="images/alien.png" alt="Pôster"><div class="movie-info"><h3>Alien, o Oitavo Passageiro</h3><p class="movie-year">1979</p></div></div>
+                <div class="movie-card" data-title="As Duas Faces de um Crime"><img src="https://fictitious.com/posters/A6.jpg" alt="Pôster"><div class="movie-info"><h3>As Duas Faces de um Crime</h3><p class="movie-year">1996</p></div></div>
+                <div class="movie-card" data-title="A Ponte dos Espiões"><img src="https://fictitious.com/posters/A7.jpg" alt="Pôster"><div class="movie-info"><h3>A Ponte dos Espiões</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="A Bela e a Fera (Animação)"><img src="https://fictitious.com/posters/A8.jpg" alt="Pôster"><div class="movie-info"><h3>A Bela e a Fera</h3><p class="movie-year">1991</p></div></div>
+                <div class="movie-card" data-title="A Viagem de Chihiro"><img src="https://fictitious.com/posters/A9.jpg" alt="Pôster"><div class="movie-info"><h3>A Viagem de Chihiro</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="Adoráveis Mulheres"><img src="https://fictitious.com/posters/A10.jpg" alt="Pôster"><div class="movie-info"><h3>Adoráveis Mulheres</h3><p class="movie-year">2019</p></div></div>
                 
-                <p class="search-footer-info" style="text-align: center; margin-top: 40px;">
-                    Os resultados acima são simulados a partir da primeira letra do seu termo de busca.
-                </p>
-            </div>
+                <div class="movie-card" data-title="Batman: O Cavaleiro das Trevas"><img src="images/batman.png" alt="Pôster"><div class="movie-info"><h3>Batman: O Cavaleiro das Trevas</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="Blade Runner 2049"><img src="https://fictitious.com/posters/B2.jpg" alt="Pôster"><div class="movie-info"><h3>Blade Runner 2049</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="Boyhood: Da Infância à Juventude"><img src="https://fictitious.com/posters/B3.jpg" alt="Pôster"><div class="movie-info"><h3>Boyhood</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Beleza Americana"><img src="https://fictitious.com/posters/B4.jpg" alt="Pôster"><div class="movie-info"><h3>Beleza Americana</h3><p class="movie-year">1999</p></div></div>
+                <div class="movie-card" data-title="Birdman"><img src="https://fictitious.com/posters/B5.jpg" alt="Pôster"><div class="movie-info"><h3>Birdman</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Bastardos Inglórios"><img src="https://fictitious.com/posters/B6.jpg" alt="Pôster"><div class="movie-info"><h3>Bastardos Inglórios</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="Braveheart"><img src="https://fictitious.com/posters/B7.jpg" alt="Pôster"><div class="movie-info"><h3>Braveheart</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Brokeback Mountain"><img src="https://fictitious.com/posters/B8.jpg" alt="Pôster"><div class="movie-info"><h3>Brokeback Mountain</h3><p class="movie-year">2005</p></div></div>
+                <div class="movie-card" data-title="Black Panther"><img src="https://fictitious.com/posters/B9.jpg" alt="Pôster"><div class="movie-info"><h3>Black Panther</h3><p class="movie-year">2018</p></div></div>
+                <div class="movie-card" data-title="Brilho Eterno"><img src="https://fictitious.com/posters/B10.jpg" alt="Pôster"><div class="movie-info"><h3>Brilho Eterno</h3><p class="movie-year">2004</p></div></div>
+                
+                <div class="movie-card" data-title="Capitão Fantástico"><img src="https://fictitious.com/posters/C1.jpg" alt="Pôster"><div class="movie-info"><h3>Capitão Fantástico</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Clube da Luta"><img src="https://fictitious.com/posters/C2.jpg" alt="Pôster"><div class="movie-info"><h3>Clube da Luta</h3><p class="movie-year">1999</p></div></div>
+                <div class="movie-card" data-title="Cães de Aluguel"><img src="https://fictitious.com/posters/C3.jpg" alt="Pôster"><div class="movie-info"><h3>Cães de Aluguel</h3><p class="movie-year">1992</p></div></div>
+                <div class="movie-card" data-title="Cinema Paradiso"><img src="https://fictitious.com/posters/C4.jpg" alt="Pôster"><div class="movie-info"><h3>Cinema Paradiso</h3><p class="movie-year">1988</p></div></div>
+                <div class="movie-card" data-title="Corra!"><img src="https://fictitious.com/posters/C5.jpg" alt="Pôster"><div class="movie-info"><h3>Corra!</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="Cisne Negro"><img src="https://fictitious.com/posters/C6.jpg" alt="Pôster"><div class="movie-info"><h3>Cisne Negro</h3><p class="movie-year">2010</p></div></div>
+                <div class="movie-card" data-title="Coração Valente"><img src="https://fictitious.com/posters/C7.jpg" alt="Pôster"><div class="movie-info"><h3>Coração Valente</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Crepúsculo dos Deuses"><img src="https://fictitious.com/posters/C8.jpg" alt="Pôster"><div class="movie-info"><h3>Crepúsculo dos Deuses</h3><p class="movie-year">1950</p></div></div>
+                <div class="movie-card" data-title="Contatos Imediatos"><img src="https://fictitious.com/posters/C9.jpg" alt="Pôster"><div class="movie-info"><h3>Contatos Imediatos</h3><p class="movie-year">1977</p></div></div>
+                <div class="movie-card" data-title="Carrie, a Estranha"><img src="https://fictitious.com/posters/C10.jpg" alt="Pôster"><div class="movie-info"><h3>Carrie, a Estranha</h3><p class="movie-year">1976</p></div></div>
+
+                <div class="movie-card" data-title="Duna"><img src="https://fictitious.com/posters/D1.jpg" alt="Pôster"><div class="movie-info"><h3>Duna</h3><p class="movie-year">2021</p></div></div>
+                <div class="movie-card" data-title="Django Livre"><img src="https://fictitious.com/posters/D2.jpg" alt="Pôster"><div class="movie-info"><h3>Django Livre</h3><p class="movie-year">2012</p></div></div>
+                <div class="movie-card" data-title="De Volta Para o Futuro"><img src="https://fictitious.com/posters/D3.jpg" alt="Pôster"><div class="movie-info"><h3>De Volta Para o Futuro</h3><p class="movie-year">1985</p></div></div>
+                <div class="movie-card" data-title="Duro de Matar"><img src="https://fictitious.com/posters/D4.jpg" alt="Pôster"><div class="movie-info"><h3>Duro de Matar</h3><p class="movie-year">1988</p></div></div>
+                <div class="movie-card" data-title="Dr. Fantástico"><img src="https://fictitious.com/posters/D5.jpg" alt="Pôster"><div class="movie-info"><h3>Dr. Fantástico</h3><p class="movie-year">1964</p></div></div>
+                <div class="movie-card" data-title="Drive"><img src="https://fictitious.com/posters/D6.jpg" alt="Pôster"><div class="movie-info"><h3>Drive</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="Dia de Treinamento"><img src="https://fictitious.com/posters/D7.jpg" alt="Pôster"><div class="movie-info"><h3>Dia de Treinamento</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="Doze Homens e Uma Sentença"><img src="https://fictitious.com/posters/D8.jpg" alt="Pôster"><div class="movie-info"><h3>Doze Homens e Uma Sentença</h3><p class="movie-year">1957</p></div></div>
+                <div class="movie-card" data-title="Desejo e Reparação"><img src="https://fictitious.com/posters/D9.jpg" alt="Pôster"><div class="movie-info"><h3>Desejo e Reparação</h3><p class="movie-year">2007</p></div></div>
+                <div class="movie-card" data-title="Doutor Estranho"><img src="https://fictitious.com/posters/D10.jpg" alt="Pôster"><div class="movie-info"><h3>Doutor Estranho</h3><p class="movie-year">2016</p></div></div>
+
+                <div class="movie-card" data-title="Era Uma Vez em Hollywood"><img src="https://fictitious.com/posters/E1.jpg" alt="Pôster"><div class="movie-info"><h3>Era Uma Vez em Hollywood</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Em Busca do Ouro"><img src="https://fictitious.com/posters/E2.jpg" alt="Pôster"><div class="movie-info"><h3>Em Busca do Ouro</h3><p class="movie-year">1925</p></div></div>
+                <div class="movie-card" data-title="E.T. - O Extraterrestre"><img src="https://fictitious.com/posters/E3.jpg" alt="Pôster"><div class="movie-info"><h3>E.T.</h3><p class="movie-year">1982</p></div></div>
+                <div class="movie-card" data-title="Encontros e Desencontros"><img src="https://fictitious.com/posters/E4.jpg" alt="Pôster"><div class="movie-info"><h3>Encontros e Desencontros</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="Ex Machina"><img src="https://fictitious.com/posters/E5.jpg" alt="Pôster"><div class="movie-info"><h3>Ex Machina</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Escola de Rock"><img src="https://fictitious.com/posters/E6.jpg" alt="Pôster"><div class="movie-info"><h3>Escola de Rock</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="Efeito Borboleta"><img src="https://fictitious.com/posters/E7.jpg" alt="Pôster"><div class="movie-info"><h3>Efeito Borboleta</h3><p class="movie-year">2004</p></div></div>
+                <div class="movie-card" data-title="Ed Wood"><img src="https://fictitious.com/posters/E8.jpg" alt="Pôster"><div class="movie-info"><h3>Ed Wood</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="O Exorcista"><img src="https://fictitious.com/posters/E9.jpg" alt="Pôster"><div class="movie-info"><h3>O Exorcista</h3><p class="movie-year">1973</p></div></div>
+                <div class="movie-card" data-title="Estrada para Perdição"><img src="https://fictitious.com/posters/E10.jpg" alt="Pôster"><div class="movie-info"><h3>Estrada para Perdição</h3><p class="movie-year">2002</p></div></div>
+
+                <div class="movie-card" data-title="Forrest Gump"><img src="https://fictitious.com/posters/F1.jpg" alt="Pôster"><div class="movie-info"><h3>Forrest Gump</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="Fargo"><img src="https://fictitious.com/posters/F2.jpg" alt="Pôster"><div class="movie-info"><h3>Fargo</h3><p class="movie-year">1996</p></div></div>
+                <div class="movie-card" data-title="Fúria Sobre Rodas"><img src="https://fictitious.com/posters/F3.jpg" alt="Pôster"><div class="movie-info"><h3>Fúria Sobre Rodas</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="O Fabuloso Destino de Amélie Poulain"><img src="https://fictitious.com/posters/F4.jpg" alt="Pôster"><div class="movie-info"><h3>Amélie Poulain</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="Fogo Contra Fogo"><img src="https://fictitious.com/posters/F5.jpg" alt="Pôster"><div class="movie-info"><h3>Fogo Contra Fogo</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Feitiço do Tempo"><img src="https://fictitious.com/posters/F6.jpg" alt="Pôster"><div class="movie-info"><h3>Feitiço do Tempo</h3><p class="movie-year">1993</p></div></div>
+                <div class="movie-card" data-title="Flashdance"><img src="https://fictitious.com/posters/F7.jpg" alt="Pôster"><div class="movie-info"><h3>Flashdance</h3><p class="movie-year">1983</p></div></div>
+                <div class="movie-card" data-title="Filadélfia"><img src="https://fictitious.com/posters/F8.jpg" alt="Pôster"><div class="movie-info"><h3>Filadélfia</h3><p class="movie-year">1993</p></div></div>
+                <div class="movie-card" data-title="Fome de Poder"><img src="https://fictitious.com/posters/F9.jpg" alt="Pôster"><div class="movie-info"><h3>Fome de Poder</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Fuga de Alcatraz"><img src="https://fictitious.com/posters/F10.jpg" alt="Pôster"><div class="movie-info"><h3>Fuga de Alcatraz</h3><p class="movie-year">1979</p></div></div>
+
+                <div class="movie-card" data-title="Gladiador"><img src="https://fictitious.com/posters/G1.jpg" alt="Pôster"><div class="movie-info"><h3>Gladiador</h3><p class="movie-year">2000</p></div></div>
+                <div class="movie-card" data-title="Gênio Indomável"><img src="https://fictitious.com/posters/G2.jpg" alt="Pôster"><div class="movie-info"><h3>Gênio Indomável</h3><p class="movie-year">1997</p></div></div>
+                <div class="movie-card" data-title="Gravidade"><img src="https://fictitious.com/posters/G3.jpg" alt="Pôster"><div class="movie-info"><h3>Gravidade</h3><p class="movie-year">2013</p></div></div>
+                <div class="movie-card" data-title="Guerra nas Estrelas: Uma Nova Esperança"><img src="https://fictitious.com/posters/G4.jpg" alt="Pôster"><div class="movie-info"><h3>Guerra nas Estrelas: IV</h3><p class="movie-year">1977</p></div></div>
+                <div class="movie-card" data-title="Gran Torino"><img src="https://fictitious.com/posters/G5.jpg" alt="Pôster"><div class="movie-info"><h3>Gran Torino</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="Garota Exemplar"><img src="https://fictitious.com/posters/G6.jpg" alt="Pôster"><div class="movie-info"><h3>Garota Exemplar</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Gatos de Botas 2"><img src="https://fictitious.com/posters/G7.jpg" alt="Pôster"><div class="movie-info"><h3>Gatos de Botas 2</h3><p class="movie-year">2022</p></div></div>
+                <div class="movie-card" data-title="Ghost: Do Outro Lado da Vida"><img src="https://fictitious.com/posters/G8.jpg" alt="Pôster"><div class="movie-info"><h3>Ghost</h3><p class="movie-year">1990</p></div></div>
+                <div class="movie-card" data-title="Green Book: O Guia"><img src="https://fictitious.com/posters/G9.jpg" alt="Pôster"><div class="movie-info"><h3>Green Book: O Guia</h3><p class="movie-year">2018</p></div></div>
+                <div class="movie-card" data-title="Gattaca: A Experiência Genética"><img src="https://fictitious.com/posters/G10.jpg" alt="Pôster"><div class="movie-info"><h3>Gattaca</h3><p class="movie-year">1997</p></div></div>
+
+                <div class="movie-card" data-title="Homem-Aranha: No Aranhaverso"><img src="https://fictitious.com/posters/H1.jpg" alt="Pôster"><div class="movie-info"><h3>Homem-Aranha: No Aranhaverso</h3><p class="movie-year">2018</p></div></div>
+                <div class="movie-card" data-title="História de um Casamento"><img src="https://fictitious.com/posters/H2.jpg" alt="Pôster"><div class="movie-info"><h3>História de um Casamento</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Hotel Ruanda"><img src="https://fictitious.com/posters/H3.jpg" alt="Pôster"><div class="movie-info"><h3>Hotel Ruanda</h3><p class="movie-year">2004</p></div></div>
+                <div class="movie-card" data-title="Hacksaw Ridge: Até o Último Homem"><img src="https://fictitious.com/posters/H4.jpg" alt="Pôster"><div class="movie-info"><h3>Hacksaw Ridge</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Her"><img src="https://fictitious.com/posters/H5.jpg" alt="Pôster"><div class="movie-info"><h3>Her</h3><p class="movie-year">2013</p></div></div>
+                <div class="movie-card" data-title="Highlander"><img src="https://fictitious.com/posters/H6.jpg" alt="Pôster"><div class="movie-info"><h3>Highlander</h3><p class="movie-year">1986</p></div></div>
+                <div class="movie-card" data-title="O Homem Elefante"><img src="https://fictitious.com/posters/H7.jpg" alt="Pôster"><div class="movie-info"><h3>O Homem Elefante</h3><p class="movie-year">1980</p></div></div>
+                <div class="movie-card" data-title="O Hotel Budapeste"><img src="https://fictitious.com/posters/H8.jpg" alt="Pôster"><div class="movie-info"><h3>O Hotel Budapeste</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Homem de Ferro"><img src="https://fictitious.com/posters/H9.jpg" alt="Pôster"><div class="movie-info"><h3>Homem de Ferro</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="O Hostil"><img src="https://fictitious.com/posters/H10.jpg" alt="Pôster"><div class="movie-info"><h3>O Hostil</h3><p class="movie-year">2015</p></div></div>
+
+                <div class="movie-card" data-title="Interestelar"><img src="https://fictitious.com/posters/I1.jpg" alt="Pôster"><div class="movie-info"><h3>Interestelar</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Indiana Jones e Os Caçadores da Arca Perdida"><img src="https://fictitious.com/posters/I2.jpg" alt="Pôster"><div class="movie-info"><h3>Indiana Jones</h3><p class="movie-year">1981</p></div></div>
+                <div class="movie-card" data-title="Incêndios"><img src="https://fictitious.com/posters/I3.jpg" alt="Pôster"><div class="movie-info"><h3>Incêndios</h3><p class="movie-year">2010</p></div></div>
+                <div class="movie-card" data-title="Invencível (Unbreakable)"><img src="https://fictitious.com/posters/I4.jpg" alt="Pôster"><div class="movie-info"><h3>Invencível (Unbreakable)</h3><p class="movie-year">2000</p></div></div>
+                <div class="movie-card" data-title="Infiltrados"><img src="https://fictitious.com/posters/I5.jpg" alt="Pôster"><div class="movie-info"><h3>Infiltrados</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="Intocáveis"><img src="https://fictitious.com/posters/I6.jpg" alt="Pôster"><div class="movie-info"><h3>Intocáveis</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="Ilha do Medo"><img src="https://fictitious.com/posters/I7.jpg" alt="Pôster"><div class="movie-info"><h3>Ilha do Medo</h3><p class="movie-year">2010</p></div></div>
+                <div class="movie-card" data-title="O Irlandês"><img src="https://fictitious.com/posters/I8.jpg" alt="Pôster"><div class="movie-info"><h3>O Irlandês</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Irmão Sol, Irmã Lua"><img src="https://fictitious.com/posters/I9.jpg" alt="Pôster"><div class="movie-info"><h3>Irmão Sol, Irmã Lua</h3><p class="movie-year">1972</p></div></div>
+                <div class="movie-card" data-title="A Identidade Bourne"><img src="https://fictitious.com/posters/I10.jpg" alt="Pôster"><div class="movie-info"><h3>A Identidade Bourne</h3><p class="movie-year">2002</p></div></div>
+
+                <div class="movie-card" data-title="Joker"><img src="https://fictitious.com/posters/J1.jpg" alt="Pôster"><div class="movie-info"><h3>Joker</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Jumanji"><img src="https://fictitious.com/posters/J2.jpg" alt="Pôster"><div class="movie-info"><h3>Jumanji</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Jurassic Park"><img src="https://fictitious.com/posters/J3.jpg" alt="Pôster"><div class="movie-info"><h3>Jurassic Park</h3><p class="movie-year">1993</p></div></div>
+                <div class="movie-card" data-title="Jackie Brown"><img src="https://fictitious.com/posters/J4.jpg" alt="Pôster"><div class="movie-info"><h3>Jackie Brown</h3><p class="movie-year">1997</p></div></div>
+                <div class="movie-card" data-title="Juno"><img src="https://fictitious.com/posters/J5.jpg" alt="Pôster"><div class="movie-info"><h3>Juno</h3><p class="movie-year">2007</p></div></div>
+                <div class="movie-card" data-title="Jovem Adulta"><img src="https://fictitious.com/posters/J6.jpg" alt="Pôster"><div class="movie-info"><h3>Jovem Adulta</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="James Bond: Cassino Royale"><img src="https://fictitious.com/posters/J7.jpg" alt="Pôster"><div class="movie-info"><h3>Cassino Royale</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="JFK: A Pergunta que Não Quer Calar"><img src="https://fictitious.com/posters/J8.jpg" alt="Pôster"><div class="movie-info"><h3>JFK</h3><p class="movie-year">1991</p></div></div>
+                <div class="movie-card" data-title="JoJo Rabbit"><img src="https://fictitious.com/posters/J9.jpg" alt="Pôster"><div class="movie-info"><h3>JoJo Rabbit</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Jonas e o Circo Sem Lona"><img src="https://fictitious.com/posters/J10.jpg" alt="Pôster"><div class="movie-info"><h3>Jonas e o Circo Sem Lona</h3><p class="movie-year">2015</p></div></div>
+
+                <div class="movie-card" data-title="Kill Bill: Volume 1"><img src="https://fictitious.com/posters/K1.jpg" alt="Pôster"><div class="movie-info"><h3>Kill Bill: Vol. 1</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="King Kong"><img src="https://fictitious.com/posters/K2.jpg" alt="Pôster"><div class="movie-info"><h3>King Kong</h3><p class="movie-year">2005</p></div></div>
+                <div class="movie-card" data-title="Klaus"><img src="https://fictitious.com/posters/K3.jpg" alt="Pôster"><div class="movie-info"><h3>Klaus</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Kramer vs. Kramer"><img src="https://fictitious.com/posters/K4.jpg" alt="Pôster"><div class="movie-info"><h3>Kramer vs. Kramer</h3><p class="movie-year">1979</p></div></div>
+                <div class="movie-card" data-title="Kick-Ass: Quebrando Tudo"><img src="https://fictitious.com/posters/K5.jpg" alt="Pôster"><div class="movie-info"><h3>Kick-Ass</h3><p class="movie-year">2010</p></div></div>
+                <div class="movie-card" data-title="Kids"><img src="https://fictitious.com/posters/K6.jpg" alt="Pôster"><div class="movie-info"><h3>Kids</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Kung Fu Panda"><img src="https://fictitious.com/posters/K7.jpg" alt="Pôster"><div class="movie-info"><h3>Kung Fu Panda</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="A Killer's List"><img src="https://fictitious.com/posters/K8.jpg" alt="Pôster"><div class="movie-info"><h3>A Killer's List</h3><p class="movie-year">2023</p></div></div>
+                <div class="movie-card" data-title="Kajillionaire"><img src="https://fictitious.com/posters/K9.jpg" alt="Pôster"><div class="movie-info"><h3>Kajillionaire</h3><p class="movie-year">2020</p></div></div>
+                <div class="movie-card" data-title="K-PAX - O Caminho da Luz"><img src="https://fictitious.com/posters/K10.jpg" alt="Pôster"><div class="movie-info"><h3>K-PAX</h3><p class="movie-year">2001</p></div></div>
+
+                <div class="movie-card" data-title="O Labirinto do Fauno"><img src="https://fictitious.com/posters/L1.jpg" alt="Pôster"><div class="movie-info"><h3>O Labirinto do Fauno</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="La La Land: Cantando Estações"><img src="https://fictitious.com/posters/L2.jpg" alt="Pôster"><div class="movie-info"><h3>La La Land</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Laranja Mecânica"><img src="https://fictitious.com/posters/L3.jpg" alt="Pôster"><div class="movie-info"><h3>Laranja Mecânica</h3><p class="movie-year">1971</p></div></div>
+                <div class="movie-card" data-title="O Lobo de Wall Street"><img src="https://fictitious.com/posters/L4.jpg" alt="Pôster"><div class="movie-info"><h3>O Lobo de Wall Street</h3><p class="movie-year">2013</p></div></div>
+                <div class="movie-card" data-title="O Livro de Eli"><img src="https://fictitious.com/posters/L5.jpg" alt="Pôster"><div class="movie-info"><h3>O Livro de Eli</h3><p class="movie-year">2010</p></div></div>
+                <div class="movie-card" data-title="Léon: O Profissional"><img src="https://fictitious.com/posters/L6.jpg" alt="Pôster"><div class="movie-info"><h3>Léon: O Profissional</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="O Lado Bom da Vida"><img src="https://fictitious.com/posters/L7.jpg" alt="Pôster"><div class="movie-info"><h3>O Lado Bom da Vida</h3><p class="movie-year">2012</p></div></div>
+                <div class="movie-card" data-title="O Leitor"><img src="https://fictitious.com/posters/L8.jpg" alt="Pôster"><div class="movie-info"><h3>O Leitor</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="Lilo & Stitch"><img src="https://fictitious.com/posters/L9.jpg" alt="Pôster"><div class="movie-info"><h3>Lilo & Stitch</h3><p class="movie-year">2002</p></div></div>
+                <div class="movie-card" data-title="Louca Obsessão"><img src="https://fictitious.com/posters/L10.jpg" alt="Pôster"><div class="movie-info"><h3>Louca Obsessão</h3><p class="movie-year">1990</p></div></div>
+                
+                <div class="movie-card" data-title="Matrix"><img src="https://fictitious.com/posters/M1.jpg" alt="Pôster"><div class="movie-info"><h3>Matrix</h3><p class="movie-year">1999</p></div></div>
+                <div class="movie-card" data-title="Mad Max: Estrada da Fúria"><img src="https://fictitious.com/posters/M2.jpg" alt="Pôster"><div class="movie-info"><h3>Mad Max: Estrada da Fúria</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="Me Chame Pelo Seu Nome"><img src="https://fictitious.com/posters/M3.jpg" alt="Pôster"><div class="movie-info"><h3>Me Chame Pelo Seu Nome</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="Milk: A Voz da Igualdade"><img src="https://fictitious.com/posters/M4.jpg" alt="Pôster"><div class="movie-info"><h3>Milk</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="Memento"><img src="https://fictitious.com/posters/M5.jpg" alt="Pôster"><div class="movie-info"><h3>Memento</h3><p class="movie-year">2000</p></div></div>
+                <div class="movie-card" data-title="Magnólia"><img src="https://fictitious.com/posters/M6.jpg" alt="Pôster"><div class="movie-info"><h3>Magnólia</h3><p class="movie-year">1999</p></div></div>
+                <div class="movie-card" data-title="Máquina Mortífera"><img src="https://fictitious.com/posters/M7.jpg" alt="Pôster"><div class="movie-info"><h3>Máquina Mortífera</h3><p class="movie-year">1987</p></div></div>
+                <div class="movie-card" data-title="Meu Vizinho Totoro"><img src="https://fictitious.com/posters/M8.jpg" alt="Pôster"><div class="movie-info"><h3>Meu Vizinho Totoro</h3><p class="movie-year">1988</p></div></div>
+                <div class="movie-card" data-title="Missão Impossível"><img src="https://fictitious.com/posters/M9.jpg" alt="Pôster"><div class="movie-info"><h3>Missão Impossível</h3><p class="movie-year">1996</p></div></div>
+                <div class="movie-card" data-title="Morte no Nilo"><img src="https://fictitious.com/posters/M10.jpg" alt="Pôster"><div class="movie-info"><h3>Morte no Nilo</h3><p class="movie-year">2022</p></div></div>
+                
+                <div class="movie-card" data-title="Na Natureza Selvagem"><img src="https://fictitious.com/posters/N1.jpg" alt="Pôster"><div class="movie-info"><h3>Na Natureza Selvagem</h3><p class="movie-year">2007</p></div></div>
+                <div class="movie-card" data-title="No País do Amor"><img src="https://fictitious.com/posters/N2.jpg" alt="Pôster"><div class="movie-info"><h3>No País do Amor</h3><p class="movie-year">2023</p></div></div>
+                <div class="movie-card" data-title="No Limite do Amanhã"><img src="https://fictitious.com/posters/N3.jpg" alt="Pôster"><div class="movie-info"><h3>No Limite do Amanhã</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Nascido em 4 de Julho"><img src="https://fictitious.com/posters/N4.jpg" alt="Pôster"><div class="movie-info"><h3>Nascido em 4 de Julho</h3><p class="movie-year">1989</p></div></div>
+                <div class="movie-card" data-title="A Noiva-Cadáver"><img src="https://fictitious.com/posters/N5.jpg" alt="Pôster"><div class="movie-info"><h3>A Noiva-Cadáver</h3><p class="movie-year">2005</p></div></div>
+                <div class="movie-card" data-title="No Ritmo de Fuga"><img src="https://fictitious.com/posters/N6.jpg" alt="Pôster"><div class="movie-info"><h3>No Ritmo de Fuga</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="Neve Negra"><img src="https://fictitious.com/posters/N7.jpg" alt="Pôster"><div class="movie-info"><h3>Neve Negra</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="Nightcrawler"><img src="https://fictitious.com/posters/N8.jpg" alt="Pôster"><div class="movie-info"><h3>Nightcrawler</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Narciso Negro"><img src="https://fictitious.com/posters/N9.jpg" alt="Pôster"><div class="movie-info"><h3>Narciso Negro</h3><p class="movie-year">1947</p></div></div>
+                <div class="movie-card" data-title="Nós"><img src="https://fictitious.com/posters/N10.jpg" alt="Pôster"><div class="movie-info"><h3>Nós</h3><p class="movie-year">2019</p></div></div>
+
+                <div class="movie-card" data-title="O Poderoso Chefão"><img src="https://fictitious.com/posters/O1.jpg" alt="Pôster"><div class="movie-info"><h3>O Poderoso Chefão</h3><p class="movie-year">1972</p></div></div>
+                <div class="movie-card" data-title="Os Oito Odiados"><img src="https://fictitious.com/posters/O2.jpg" alt="Pôster"><div class="movie-info"><h3>Os Oito Odiados</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="O Resgate do Soldado Ryan"><img src="https://fictitious.com/posters/O3.jpg" alt="Pôster"><div class="movie-info"><h3>O Resgate do Soldado Ryan</h3><p class="movie-year">1998</p></div></div>
+                <div class="movie-card" data-title="O Segredo dos Seus Olhos"><img src="https://fictitious.com/posters/O4.jpg" alt="Pôster"><div class="movie-info"><h3>O Segredo dos Seus Olhos</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="O Sexto Sentido"><img src="https://fictitious.com/posters/O5.jpg" alt="Pôster"><div class="movie-info"><h3>O Sexto Sentido</h3><p class="movie-year">1999</p></div></div>
+                <div class="movie-card" data-title="O Menino do Pijama Listrado"><img src="https://fictitious.com/posters/O6.jpg" alt="Pôster"><div class="movie-info"><h3>O Menino do Pijama Listrado</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="O Artista"><img src="https://fictitious.com/posters/O7.jpg" alt="Pôster"><div class="movie-info"><h3>O Artista</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="O Exterminador do Futuro 2"><img src="https://fictitious.com/posters/O8.jpg" alt="Pôster"><div class="movie-info"><h3>O Exterminador do Futuro 2</h3><p class="movie-year">1991</p></div></div>
+                <div class="movie-card" data-title="Oppenheimer"><img src="https://fictitious.com/posters/O9.jpg" alt="Pôster"><div class="movie-info"><h3>Oppenheimer</h3><p class="movie-year">2023</p></div></div>
+                <div class="movie-card" data-title="Os Suspeitos"><img src="https://fictitious.com/posters/O10.jpg" alt="Pôster"><div class="movie-info"><h3>Os Suspeitos</h3><p class="movie-year">1995</p></div></div>
+
+                <div class="movie-card" data-title="Parasita"><img src="https://fictitious.com/posters/P1.jpg" alt="Pôster"><div class="movie-info"><h3>Parasita</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Pulp Fiction: Tempo de Violência"><img src="https://fictitious.com/posters/P2.jpg" alt="Pôster"><div class="movie-info"><h3>Pulp Fiction</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="Prenda-me Se For Capaz"><img src="https://fictitious.com/posters/P3.jpg" alt="Pôster"><div class="movie-info"><h3>Prenda-me Se For Capaz</h3><p class="movie-year">2002</p></div></div>
+                <div class="movie-card" data-title="Perdido em Marte"><img src="https://fictitious.com/posters/P4.jpg" alt="Pôster"><div class="movie-info"><h3>Perdido em Marte</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="Psicopata Americano"><img src="https://fictitious.com/posters/P5.jpg" alt="Pôster"><div class="movie-info"><h3>Psicopata Americano</h3><p class="movie-year">2000</p></div></div>
+                <div class="movie-card" data-title="A Princesa Mononoke"><img src="https://fictitious.com/posters/P6.jpg" alt="Pôster"><div class="movie-info"><h3>A Princesa Mononoke</h3><p class="movie-year">1997</p></div></div>
+                <div class="movie-card" data-title="A Paixão de Cristo"><img src="https://fictitious.com/posters/P7.jpg" alt="Pôster"><div class="movie-info"><h3>A Paixão de Cristo</h3><p class="movie-year">2004</p></div></div>
+                <div class="movie-card" data-title="Pânico"><img src="https://fictitious.com/posters/P8.jpg" alt="Pôster"><div class="movie-info"><h3>Pânico</h3><p class="movie-year">1996</p></div></div>
+                <div class="movie-card" data-title="Piratas do Caribe"><img src="https://fictitious.com/posters/P9.jpg" alt="Pôster"><div class="movie-info"><h3>Piratas do Caribe</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="Pequena Miss Sunshine"><img src="https://fictitious.com/posters/P10.jpg" alt="Pôster"><div class="movie-info"><h3>Pequena Miss Sunshine</h3><p class="movie-year">2006</p></div></div>
+
+                <div class="movie-card" data-title="Queime Depois de Ler"><img src="https://fictitious.com/posters/Q1.jpg" alt="Pôster"><div class="movie-info"><h3>Queime Depois de Ler</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="Questão de Tempo"><img src="https://fictitious.com/posters/Q2.jpg" alt="Pôster"><div class="movie-info"><h3>Questão de Tempo</h3><p class="movie-year">2013</p></div></div>
+                <div class="movie-card" data-title="Quase Famosos"><img src="https://fictitious.com/posters/Q3.jpg" alt="Pôster"><div class="movie-info"><h3>Quase Famosos</h3><p class="movie-year">2000</p></div></div>
+                <div class="movie-card" data-title="Quatro Casamentos e Um Funeral"><img src="https://fictitious.com/posters/Q4.jpg" alt="Pôster"><div class="movie-info"><h3>Quatro Casamentos</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="Quarto de Guerra"><img src="https://fictitious.com/posters/Q5.jpg" alt="Pôster"><div class="movie-info"><h3>Quarto de Guerra</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="Quarteto Fantástico"><img src="https://fictitious.com/posters/Q6.jpg" alt="Pôster"><div class="movie-info"><h3>Quarteto Fantástico</h3><p class="movie-year">2005</p></div></div>
+                <div class="movie-card" data-title="Quando Explode a Vingança"><img src="https://fictitious.com/posters/Q7.jpg" alt="Pôster"><div class="movie-info"><h3>Quando Explode a Vingança</h3><p class="movie-year">1971</p></div></div>
+                <div class="movie-card" data-title="Querida Encolhi as Crianças"><img src="https://fictitious.com/posters/Q8.jpg" alt="Pôster"><div class="movie-info"><h3>Querida Encolhi as Crianças</h3><p class="movie-year">1989</p></div></div>
+                <div class="movie-card" data-title="Quilômetros de Pistas"><img src="https://fictitious.com/posters/Q9.jpg" alt="Pôster"><div class="movie-info"><h3>Quilômetros de Pistas</h3><p class="movie-year">2018</p></div></div>
+                <div class="movie-card" data-title="Quase Dois Irmãos"><img src="https://fictitious.com/posters/Q10.jpg" alt="Pôster"><div class="movie-info"><h3>Quase Dois Irmãos</h3><p class="movie-year">2004</p></div></div>
+                
+                <div class="movie-card" data-title="Rei Leão (Animação)"><img src="https://fictitious.com/posters/R1.jpg" alt="Pôster"><div class="movie-info"><h3>Rei Leão</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="Requiem para um Sonho"><img src="https://fictitious.com/posters/R2.jpg" alt="Pôster"><div class="movie-info"><h3>Requiem para um Sonho</h3><p class="movie-year">2000</p></div></div>
+                <div class="movie-card" data-title="Rogue One: Uma História Star Wars"><img src="https://fictitious.com/posters/R3.jpg" alt="Pôster"><div class="movie-info"><h3>Rogue One</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Rocky: Um Lutador"><img src="https://fictitious.com/posters/R4.jpg" alt="Pôster"><div class="movie-info"><h3>Rocky: Um Lutador</h3><p class="movie-year">1976</p></div></div>
+                <div class="movie-card" data-title="Rush: No Limite da Emoção"><img src="https://fictitious.com/posters/R5.jpg" alt="Pôster"><div class="movie-info"><h3>Rush</h3><p class="movie-year">2013</p></div></div>
+                <div class="movie-card" data-title="Ratos de Praia"><img src="https://fictitious.com/posters/R6.jpg" alt="Pôster"><div class="movie-info"><h3>Ratos de Praia</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="RoboCop"><img src="https://fictitious.com/posters/R7.jpg" alt="Pôster"><div class="movie-info"><h3>RoboCop</h3><p class="movie-year">1987</p></div></div>
+                <div class="movie-card" data-title="O Rio Sagrado"><img src="https://fictitious.com/posters/R8.jpg" alt="Pôster"><div class="movie-info"><h3>O Rio Sagrado</h3><p class="movie-year">2021</p></div></div>
+                <div class="movie-card" data-title="Rambo: Programado Para Matar"><img src="https://fictitious.com/posters/R9.jpg" alt="Pôster"><div class="movie-info"><h3>Rambo: Programado Para Matar</h3><p class="movie-year">1982</p></div></div>
+                <div class="movie-card" data-title="Réquiem para Hitler"><img src="https://fictitious.com/posters/R10.jpg" alt="Pôster"><div class="movie-info"><h3>Réquiem para Hitler</h3><p class="movie-year">2004</p></div></div>
+
+                <div class="movie-card" data-title="Seven: Os Sete Crimes Capitais"><img src="https://fictitious.com/posters/S1.jpg" alt="Pôster"><div class="movie-info"><h3>Seven</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Senhor dos Anéis: O Retorno do Rei"><img src="https://fictitious.com/posters/S2.jpg" alt="Pôster"><div class="movie-info"><h3>Senhor dos Anéis: O Retorno do Rei</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="Show de Truman"><img src="https://fictitious.com/posters/S3.jpg" alt="Pôster"><div class="movie-info"><h3>Show de Truman</h3><p class="movie-year">1998</p></div></div>
+                <div class="movie-card" data-title="Sociedade dos Poetas Mortos"><img src="https://fictitious.com/posters/S4.jpg" alt="Pôster"><div class="movie-info"><h3>Sociedade dos Poetas Mortos</h3><p class="movie-year">1989</p></div></div>
+                <div class="movie-card" data-title="Spotlight: Segredos Revelados"><img src="https://fictitious.com/posters/S5.jpg" alt="Pôster"><div class="movie-info"><h3>Spotlight</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="Sexta-Feira 13"><img src="https://fictitious.com/posters/S6.jpg" alt="Pôster"><div class="movie-info"><h3>Sexta-Feira 13</h3><p class="movie-year">1980</p></div></div>
+                <div class="movie-card" data-title="Silêncio dos Inocentes"><img src="https://fictitious.com/posters/S7.jpg" alt="Pôster"><div class="movie-info"><h3>Silêncio dos Inocentes</h3><p class="movie-year">1991</p></div></div>
+                <div class="movie-card" data-title="Star Wars: O Império Contra-Ataca"><img src="https://fictitious.com/posters/S8.jpg" alt="Pôster"><div class="movie-info"><h3>Star Wars: V</h3><p class="movie-year">1980</p></div></div>
+                <div class="movie-card" data-title="Se Meu Fusca Falasse"><img src="https://fictitious.com/posters/S9.jpg" alt="Pôster"><div class="movie-info"><h3>Se Meu Fusca Falasse</h3><p class="movie-year">1968</p></div></div>
+                <div class="movie-card" data-title="Sherlock Holmes"><img src="https://fictitious.com/posters/S10.jpg" alt="Pôster"><div class="movie-info"><h3>Sherlock Holmes</h3><p class="movie-year">2009</p></div></div>
+
+                <div class="movie-card" data-title="Titanic"><img src="https://fictitious.com/posters/T1.jpg" alt="Pôster"><div class="movie-info"><h3>Titanic</h3><p class="movie-year">1997</p></div></div>
+                <div class="movie-card" data-title="Toy Story"><img src="https://fictitious.com/posters/T2.jpg" alt="Pôster"><div class="movie-info"><h3>Toy Story</h3><p class="movie-year">1995</p></div></div>
+                <div class="movie-card" data-title="Três Anúncios Para Um Crime"><img src="https://fictitious.com/posters/T3.jpg" alt="Pôster"><div class="movie-info"><h3>Três Anúncios Para Um Crime</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="Taxi Driver"><img src="https://fictitious.com/posters/T4.jpg" alt="Pôster"><div class="movie-info"><h3>Taxi Driver</h3><p class="movie-year">1976</p></div></div>
+                <div class="movie-card" data-title="Trainspotting"><img src="https://fictitious.com/posters/T5.jpg" alt="Pôster"><div class="movie-info"><h3>Trainspotting</h3><p class="movie-year">1996</p></div></div>
+                <div class="movie-card" data-title="O Terminal"><img src="https://fictitious.com/posters/T6.jpg" alt="Pôster"><div class="movie-info"><h3>O Terminal</h3><p class="movie-year">2004</p></div></div>
+                <div class="movie-card" data-title="O Terno de 2 Bilhões de Dólares"><img src="https://fictitious.com/posters/T7.jpg" alt="Pôster"><div class="movie-info"><h3>Terno de 2 Bilhões de Dólares</h3><p class="movie-year">2002</p></div></div>
+                <div class="movie-card" data-title="Top Gun: Maverick"><img src="https://fictitious.com/posters/T8.jpg" alt="Pôster"><div class="movie-info"><h3>Top Gun: Maverick</h3><p class="movie-year">2022</p></div></div>
+                <div class="movie-card" data-title="Transamérica"><img src="https://fictitious.com/posters/T9.jpg" alt="Pôster"><div class="movie-info"><h3>Transamérica</h3><p class="movie-year">2005</p></div></div>
+                <div class="movie-card" data-title="Tempo de Despertar"><img src="https://fictitious.com/posters/T10.jpg" alt="Pôster"><div class="movie-info"><h3>Tempo de Despertar</h3><p class="movie-year">1990</p></div></div>
+
+                <div class="movie-card" data-title="Um Sonho de Liberdade"><img src="https://fictitious.com/posters/U1.jpg" alt="Pôster"><div class="movie-info"><h3>Um Sonho de Liberdade</h3><p class="movie-year">1994</p></div></div>
+                <div class="movie-card" data-title="Up - Altas Aventuras"><img src="https://fictitious.com/posters/U2.jpg" alt="Pôster"><div class="movie-info"><h3>Up - Altas Aventuras</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="Uma Mente Brilhante"><img src="https://fictitious.com/posters/U3.jpg" alt="Pôster"><div class="movie-info"><h3>Uma Mente Brilhante</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="United 93"><img src="https://fictitious.com/posters/U4.jpg" alt="Pôster"><div class="movie-info"><h3>United 93</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="Um Lugar Chamado Notting Hill"><img src="https://fictitious.com/posters/U5.jpg" alt="Pôster"><div class="movie-info"><h3>Notting Hill</h3><p class="movie-year">1999</p></div></div>
+                <div class="movie-card" data-title="Um Tira da Pesada"><img src="https://fictitious.com/posters/U6.jpg" alt="Pôster"><div class="movie-info"><h3>Um Tira da Pesada</h3><p class="movie-year">1984</p></div></div>
+                <div class="movie-card" data-title="Um Dia de Fúria"><img src="https://fictitious.com/posters/U7.jpg" alt="Pôster"><div class="movie-info"><h3>Um Dia de Fúria</h3><p class="movie-year">1993</p></div></div>
+                <div class="movie-card" data-title="Underworld: Anjos da Noite"><img src="https://fictitious.com/posters/U8.jpg" alt="Pôster"><div class="movie-info"><h3>Underworld</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="Um Lobisomem Americano em Londres"><img src="https://fictitious.com/posters/U9.jpg" alt="Pôster"><div class="movie-info"><h3>Um Lobisomem Americano</h3><p class="movie-year">1981</p></div></div>
+                <div class="movie-card" data-title="Um Estranho no Ninho"><img src="https://fictitious.com/posters/U10.jpg" alt="Pôster"><div class="movie-info"><h3>Um Estranho no Ninho</h3><p class="movie-year">1975</p></div></div>
+
+                <div class="movie-card" data-title="V de Vingança"><img src="https://fictitious.com/posters/V1.jpg" alt="Pôster"><div class="movie-info"><h3>V de Vingança</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="Vida de Pi"><img src="https://fictitious.com/posters/V2.jpg" alt="Pôster"><div class="movie-info"><h3>Vida de Pi</h3><p class="movie-year">2012</p></div></div>
+                <div class="movie-card" data-title="Volta ao Mundo em 80 Dias"><img src="https://fictitious.com/posters/V3.jpg" alt="Pôster"><div class="movie-info"><h3>Volta ao Mundo em 80 Dias</h3><p class="movie-year">1956</p></div></div>
+                <div class="movie-card" data-title="Velozes e Furiosos"><img src="https://fictitious.com/posters/V4.jpg" alt="Pôster"><div class="movie-info"><h3>Velozes e Furiosos</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="Vanilla Sky"><img src="https://fictitious.com/posters/V5.jpg" alt="Pôster"><div class="movie-info"><h3>Vanilla Sky</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="Viver"><img src="https://fictitious.com/posters/V6.jpg" alt="Pôster"><div class="movie-info"><h3>Viver</h3><p class="movie-year">1952</p></div></div>
+                <div class="movie-card" data-title="Vozes"><img src="https://fictitious.com/posters/V7.jpg" alt="Pôster"><div class="movie-info"><h3>Vozes</h3><p class="movie-year">2020</p></div></div>
+                <div class="movie-card" data-title="Viagem de Trem"><img src="https://fictitious.com/posters/V8.jpg" alt="Pôster"><div class="movie-info"><h3>Viagem de Trem</h3><p class="movie-year">2022</p></div></div>
+                <div class="movie-card" data-title="Vingadores: Ultimato"><img src="https://fictitious.com/posters/V9.jpg" alt="Pôster"><div class="movie-info"><h3>Vingadores: Ultimato</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="Vizinhos"><img src="https://fictitious.com/posters/V10.jpg" alt="Pôster"><div class="movie-info"><h3>Vizinhos</h3><p class="movie-year">2014</p></div></div>
+
+                <div class="movie-card" data-title="Whiplash: Em Busca da Perfeição"><img src="https://fictitious.com/posters/W1.jpg" alt="Pôster"><div class="movie-info"><h3>Whiplash</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Wall-E"><img src="https://fictitious.com/posters/W2.jpg" alt="Pôster"><div class="movie-info"><h3>Wall-E</h3><p class="movie-year">2008</p></div></div>
+                <div class="movie-card" data-title="Watchmen: O Filme"><img src="https://fictitious.com/posters/W3.jpg" alt="Pôster"><div class="movie-info"><h3>Watchmen</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="Willy Wonka e a Fábrica de Chocolate"><img src="https://fictitious.com/posters/W4.jpg" alt="Pôster"><div class="movie-info"><h3>Willy Wonka</h3><p class="movie-year">1971</p></div></div>
+                <div class="movie-card" data-title="Walk the Line"><img src="https://fictitious.com/posters/W5.jpg" alt="Pôster"><div class="movie-info"><h3>Walk the Line</h3><p class="movie-year">2005</p></div></div>
+                <div class="movie-card" data-title="Wonder Woman"><img src="https://fictitious.com/posters/W6.jpg" alt="Pôster"><div class="movie-info"><h3>Wonder Woman</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="A Vila"><img src="https://fictitious.com/posters/W7.jpg" alt="Pôster"><div class="movie-info"><h3>A Vila</h3><p class="movie-year">2004</p></div></div>
+                <div class="movie-card" data-title="O Aviador"><img src="https://fictitious.com/posters/W8.jpg" alt="Pôster"><div class="movie-info"><h3>O Aviador</h3><p class="movie-year">2004</p></div></div>
+                <div class="movie-card" data-title="World War Z"><img src="https://fictitious.com/posters/W9.jpg" alt="Pôster"><div class="movie-info"><h3>World War Z</h3><p class="movie-year">2013</p></div></div>
+                <div class="movie-card" data-title="West Side Story"><img src="https://fictitious.com/posters/W10.jpg" alt="Pôster"><div class="movie-info"><h3>West Side Story</h3><p class="movie-year">1961</p></div></div>
+
+                <div class="movie-card" data-title="X-Men: Dias de um Futuro Esquecido"><img src="https://fictitious.com/posters/X1.jpg" alt="Pôster"><div class="movie-info"><h3>X-Men: Dias de um Futuro Esquecido</h3><p class="movie-year">2014</p></div></div>
+                <div class="movie-card" data-title="Xuxa Abracadabra"><img src="https://fictitious.com/posters/X2.jpg" alt="Pôster"><div class="movie-info"><h3>Xuxa Abracadabra</h3><p class="movie-year">2003</p></div></div>
+                <div class="movie-card" data-title="XXX: Reativado"><img src="https://fictitious.com/posters/X3.jpg" alt="Pôster"><div class="movie-info"><h3>XXX: Reativado</h3><p class="movie-year">2017</p></div></div>
+                <div class="movie-card" data-title="X-Men: Primeira Classe"><img src="https://fictitious.com/posters/X4.jpg" alt="Pôster"><div class="movie-info"><h3>X-Men: Primeira Classe</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="Xuxa e Os Duendes"><img src="https://fictitious.com/posters/X5.jpg" alt="Pôster"><div class="movie-info"><h3>Xuxa e Os Duendes</h3><p class="movie-year">2001</p></div></div>
+                <div class="movie-card" data-title="X-Men: O Confronto Final"><img src="https://fictitious.com/posters/X6.jpg" alt="Pôster"><div class="movie-info"><h3>X-Men: O Confronto Final</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="X-Men Origens: Wolverine"><img src="https://fictitious.com/posters/X7.jpg" alt="Pôster"><div class="movie-info"><h3>Wolverine</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="O Xadrez das Cores"><img src="https://fictitious.com/posters/X8.jpg" alt="Pôster"><div class="movie-info"><h3>O Xadrez das Cores</h3><p class="movie-year">2012</p></div></div>
+                <div class="movie-card" data-title="Xingu"><img src="https://fictitious.com/posters/X9.jpg" alt="Pôster"><div class="movie-info"><h3>Xingu</h3><p class="movie-year">2012</p></div></div>
+                <div class="movie-card" data-title="X-Men: Fênix Negra"><img src="https://fictitious.com/posters/X10.jpg" alt="Pôster"><div class="movie-info"><h3>X-Men: Fênix Negra</h3><p class="movie-year">2019</p></div></div>
+
+                <div class="movie-card" data-title="Yentl"><img src="https://fictitious.com/posters/Y1.jpg" alt="Pôster"><div class="movie-info"><h3>Yentl</h3><p class="movie-year">1983</p></div></div>
+                <div class="movie-card" data-title="Yesterday"><img src="https://fictitious.com/posters/Y2.jpg" alt="Pôster"><div class="movie-info"><h3>Yesterday</h3><p class="movie-year">2019</p></div></div>
+                <div class="movie-card" data-title="O Ano em que Meus Pais Saíram de Férias"><img src="https://fictitious.com/posters/Y3.jpg" alt="Pôster"><div class="movie-info"><h3>O Ano em que Meus Pais Saíram de Férias</h3><p class="movie-year">2006</p></div></div>
+                <div class="movie-card" data-title="O Garoto de Liverpool"><img src="https://fictitious.com/posters/Y4.jpg" alt="Pôster"><div class="movie-info"><h3>O Garoto de Liverpool</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="Você Não Está Sozinho"><img src="https://fictitious.com/posters/Y5.jpg" alt="Pôster"><div class="movie-info"><h3>Você Não Está Sozinho</h3><p class="movie-year">2020</p></div></div>
+                <div class="movie-card" data-title="A Terra da Noite"><img src="https://fictitious.com/posters/Y6.jpg" alt="Pôster"><div class="movie-info"><h3>A Terra da Noite</h3><p class="movie-year">2023</p></div></div>
+                <div class="movie-card" data-title="Yellow Submarine"><img src="https://fictitious.com/posters/Y7.jpg" alt="Pôster"><div class="movie-info"><h3>Yellow Submarine</h3><p class="movie-year">1968</p></div></div>
+                <div class="movie-card" data-title="Your Name."><img src="https://fictitious.com/posters/Y8.jpg" alt="Pôster"><div class="movie-info"><h3>Your Name.</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Youth - Juventude"><img src="https://fictitious.com/posters/Y9.jpg" alt="Pôster"><div class="movie-info"><h3>Youth - Juventude</h3><p class="movie-year">2015</p></div></div>
+                <div class="movie-card" data-title="O Último Desejo"><img src="https://fictitious.com/posters/Y10.jpg" alt="Pôster"><div class="movie-info"><h3>O Último Desejo</h3><p class="movie-year">2023</p></div></div>
+
+                <div class="movie-card" data-title="Zootopia: Essa Cidade é o Bicho"><img src="https://fictitious.com/posters/Z1.jpg" alt="Pôster"><div class="movie-info"><h3>Zootopia</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="Zumbilândia"><img src="https://fictitious.com/posters/Z2.jpg" alt="Pôster"><div class="movie-info"><h3>Zumbilândia</h3><p class="movie-year">2009</p></div></div>
+                <div class="movie-card" data-title="Zodiac"><img src="https://fictitious.com/posters/Z3.jpg" alt="Pôster"><div class="movie-info"><h3>Zodiac</h3><p class="movie-year">2007</p></div></div>
+                <div class="movie-card" data-title="Zelador Animal"><img src="https://fictitious.com/posters/Z4.jpg" alt="Pôster"><div class="movie-info"><h3>Zelador Animal</h3><p class="movie-year">2011</p></div></div>
+                <div class="movie-card" data-title="O Zero e o Infinito"><img src="https://fictitious.com/posters/Z5.jpg" alt="Pôster"><div class="movie-info"><h3>O Zero e o Infinito</h3><p class="movie-year">1968</p></div></div>
+                <div class="movie-card" data-title="Zero Dark Thirty"><img src="https://fictitious.com/posters/Z6.jpg" alt="Pôster"><div class="movie-info"><h3>Zero Dark Thirty</h3><p class="movie-year">2012</p></div></div>
+                <div class="movie-card" data-title="Zoolander 2"><img src="https://fictitious.com/posters/Z7.jpg" alt="Pôster"><div class="movie-info"><h3>Zoolander 2</h3><p class="movie-year">2016</p></div></div>
+                <div class="movie-card" data-title="A Zona de Interesse"><img src="https://fictitious.com/posters/Z8.jpg" alt="Pôster"><div class="movie-info"><h3>A Zona de Interesse</h3><p class="movie-year">2023</p></div></div>
+                <div class="movie-card" data-title="O Zorro"><img src="https://fictitious.com/posters/Z9.jpg" alt="Pôster"><div class="movie-info"><h3>O Zorro</h3><p class="movie-year">1998</p></div></div>
+                <div class="movie-card" data-title="Zacarias: O Filme"><img src="https://fictitious.com/posters/Z10.jpg" alt="Pôster"><div class="movie-info"><h3>Zacarias: O Filme</h3><p class="movie-year">2009</p></div></div>
+                
+                </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-social">
-                <a href="#" aria-label="Twitter">Twitter</a>
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="Facebook">Facebook</a>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
-            <p>&copy; 2024 MovieVerse. Todos os direitos reservados.</p>
+            <p>&copy; 2025 MovieVerse. Todos os direitos reservados. Projeto Fictício.</p>
         </div>
     </footer>
 
