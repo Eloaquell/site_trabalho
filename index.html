@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo">Movie<span class="highlight">Verse</span></a>
@@ -25,89 +26,113 @@
     </header>
 
     <main>
-         
-        <section class="hero-section" style="background-image: url('assets/duna-2-banner.jpg');">
-            <div class="hero-content">
-                <h1 class="hero-title">Duna: Parte Dois</h1>
-                
-                <p class="hero-synopsis">O épico de ficção científica continua, com Paul Atreides unindo-se aos Fremen para se vingar daqueles que destruíram sua família.</p>
-               
-                <a href="#" class="btn btn-primary">Assistir Trailer</a>
+        <section class="hero">
+            <div class="hero-bg" style="background-image: url('https://image.tmdb.org/t/p/original/d5Nf7N7751jUv0Hw0T2S4J6zB8b.jpg');"></div>
+            <div class="container hero-content">
+                <h1 class="movie-title">Duna: Parte Dois</h1>
+                <p>O épico de ficção científica continua, com Paul Atreides unindo-se aos Fremen para se vingar daqueles que destruíram sua família.</p>
+                <a href="#" class="btn">Assistir Trailer</a>
             </div>
         </section>
 
-        <section class="trending-section container">
+        <section class="container">
             <h2 class="section-title">Em Alta Agora</h2>
             <div class="movie-gallery">
-                <div class="movie-card">
-                    <img src="images/Oppenheimer.png" alt="Pôster de Oppenheimer">
-                    <h3 class="movie-title">Oppenheimer</h3>
-                    <span class="movie-year">2023</span>
+                
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Oppenheimer'">
+                    <img src="https://image.tmdb.org/t/p/w200/gE0uY4vW4QG5eF2Q650Y30O01Lw.jpg" alt="Pôster de Oppenheimer">
+                    <div class="card-details">
+                        <h3 class="movie-title">Oppenheimer</h3>
+                        <span class="movie-year">2023, Biografia/Drama</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/Godzilla Minus One.png" alt="Pôster de Godzilla Minus One">
-                    <h3 class="movie-title">Godzilla Minus One</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Godzilla Minus One'">
+                    <img src="https://image.tmdb.org/t/p/w200/9oU9xW8O0pI1k91F11f42QoE3gV.jpg" alt="Pôster de Godzilla Minus One">
+                    <div class="card-details">
+                        <h3 class="movie-title">Godzilla Minus One</h3>
+                        <span class="movie-year">2023, Sci-Fi/Ação</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/Através do Aranhaverso.png" alt="Pôster de Homem-Aranha: Através do Aranhaverso">
-                    <h3 class="movie-title">Homem-Aranha: Através do Aranhaverso</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Homem-Aranha: Através do Aranhaverso'">
+                    <img src="https://image.tmdb.org/t/p/w200/d5Nf7N7751jUv0Hw0T2S4J6zB8b.jpg" alt="Pôster de Homem-Aranha: Através do Aranhaverso">
+                    <div class="card-details">
+                        <h3 class="movie-title">Homem-Aranha: Através do Aranhaverso</h3>
+                        <span class="movie-year">2023, Animação/Ação</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/barbie.png" alt="Pôster de Barbie">
-                    <h3 class="movie-title">Barbie</h3>
-                    <span class="movie-year">2023</span>
+                
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Barbie'">
+                    <img src="https://image.tmdb.org/t/p/w200/wS8I5W8j2eXQ5I0r908F0u5j8jM.jpg" alt="Pôster de Barbie">
+                    <div class="card-details">
+                        <h3 class="movie-title">Barbie</h3>
+                        <span class="movie-year">2023, Comédia/Fantasia</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/Baba Yaga.png" alt="Pôster de John Wick 4: Baba Yaga">
-                    <h3 class="movie-title">John Wick 4: Baba Yaga</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=John Wick 4'">
+                    <img src="https://image.tmdb.org/t/p/w200/kSgA78vH04vEa2Gk13y172oE21p.jpg" alt="Pôster de John Wick 4: Baba Yaga">
+                    <div class="card-details">
+                        <h3 class="movie-title">John Wick 4: Baba Yaga</h3>
+                        <span class="movie-year">2023, Ação/Crime</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/guardioes-da-galaxia-vol-3.png" alt="Pôster de Guardiões da Galáxia Vol. 3">
-                    <h3 class="movie-title">Guardiões da Galáxia Vol. 3</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Guardiões da Galáxia Vol. 3'">
+                    <img src="https://image.tmdb.org/t/p/w200/vUf07E52P69r9yXqWf2MvN2W8bY.jpg" alt="Pôster de Guardiões da Galáxia Vol. 3">
+                    <div class="card-details">
+                        <h3 class="movie-title">Guardiões da Galáxia Vol. 3</h3>
+                        <span class="movie-year">2023, Ação/Sci-Fi</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/Wonka.png" alt="Pôster de Wonka">
-                    <h3 class="movie-title">Wonka</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Wonka'">
+                    <img src="https://image.tmdb.org/t/p/w200/tC3H4e5Uu9d75i10p2S1oY65nIu.jpg" alt="Pôster de Wonka">
+                    <div class="card-details">
+                        <h3 class="movie-title">Wonka</h3>
+                        <span class="movie-year">2023, Fantasia/Musical</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/Impossível.png" alt="Pôster de Missão: Impossível - Acerto de Contas Parte Um">
-                    <h3 class="movie-title">Missão: Impossível - Acerto de Contas Parte Um</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Missão: Impossível - Acerto de Contas Parte Um'">
+                    <img src="https://image.tmdb.org/t/p/w200/xVqC73h9n18eW8t9fG731kS465C.jpg" alt="Pôster de Missão: Impossível - Acerto de Contas Parte Um">
+                    <div class="card-details">
+                        <h3 class="movie-title">Missão: Impossível - Acerto de Contas Parte Um</h3>
+                        <span class="movie-year">2023, Ação/Thriller</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/Killers of the Flower Moon.png" alt="Pôster de Killers of the Flower Moon">
-                    <h3 class="movie-title">Killers of the Flower Moon</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=Killers of the Flower Moon'">
+                    <img src="https://image.tmdb.org/t/p/w200/r5sH65P2gXJp91c8g544h780b1Y.jpg" alt="Pôster de Killers of the Flower Moon">
+                    <div class="card-details">
+                        <h3 class="movie-title">Killers of the Flower Moon</h3>
+                        <span class="movie-year">2023, Crime/Drama</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/supermario.png" alt="Pôster de Super Mario Bros. - O Filme">
-                    <h3 class="movie-title">Super Mario Bros. - O Filme</h3>
-                    <span class="movie-year">2023</span>
+
+                <div class="movie-card" onclick="window.location.href='index4.html?movie=O Exorcista do Papa'">
+                    <img src="https://image.tmdb.org/t/p/w200/3oQv7jH8XyQfO5n7F9g5X5x5V9g.jpg" alt="Pôster de O Exorcista do Papa">
+                    <div class="card-details">
+                        <h3 class="movie-title">O Exorcista do Papa</h3>
+                        <span class="movie-year">2023, Terror/Suspense</span>
+                    </div>
                 </div>
-                <div class="movie-card">
-                    <img src="images/opapa.png" alt="Pôster de O Exorcista do Papa">
-                    <h3 class="movie-title">O Exorcista do Papa</h3>
-                    <span class="movie-year">2023</span>
-                </div>
+
             </div>
         </section>
 
-        <section class="genres-section container">
+        <section class="container">
             <h2 class="section-title">Gêneros Populares</h2>
             <div class="genres-list">
-                <a href="#" class="genre-tag">Ação</a>
-                <a href="#" class="genre-tag">Comédia</a>
-                <a href="#" class="genre-tag">Suspense</a>
-                <a href="#" class="genre-tag">Animação</a>
-                <a href="#" class="genre-tag">Sci-Fi</a>
-                <a href="#" class="genre-tag">Drama</a>
-                <a href="#" class="genre-tag">Terror</a>
-                <a href="#" class="genre-tag">Fantasia</a>
+                <a href="index3.html?q=Ação" class="genre-tag">Ação</a>
+                <a href="index3.html?q=Comédia" class="genre-tag">Comédia</a>
+                <a href="index3.html?q=Suspense" class="genre-tag">Suspense</a>
+                <a href="index3.html?q=Animação" class="genre-tag">Animação</a>
+                <a href="index3.html?q=Sci-Fi" class="genre-tag">Sci-Fi</a>
+                <a href="index3.html?q=Drama" class="genre-tag">Drama</a>
+                <a href="index3.html?q=Terror" class="genre-tag">Terror</a>
+                <a href="index3.html?q=Romance" class="genre-tag">Romance</a>
             </div>
         </section>
     </main>

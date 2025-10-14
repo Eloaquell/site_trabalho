@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVerse - Detalhes do Filme</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Movie<span class="highlight">Verse</span></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index2.html" class="nav-link">Em Breve</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar filmes, séries..." id="search-input">
+                <button aria-label="Buscar" onclick="searchMovie()">&#128269;</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="detail-hero container">
+            <div class="detail-poster">
+                <img src="https://image.tmdb.org/t/p/w500/uUfE6Hn2m6x1L6d9Q63yK1X6m0l.jpg" alt="Pôster de Filmes Exemplo">
+            </div>
+            <div class="detail-info">
+                <h1 class="detail-title highlight" id="movie-detail-title">Nome do Filme Carregado!</h1>
+                <p class="detail-rating">⭐️ 8.5/10 (250K Votos)</p>
+                <div class="detail-genres">
+                    <span>Ação</span>
+                    <span>Sci-Fi</span>
+                    <span>Aventura</span>
+                </div>
+                <p style="margin-top: 20px; color: var(--color-text);">
+                    **Sinopse:** Esta é uma página de detalhes. Em um projeto real, esta área seria preenchida dinamicamente com dados da API sobre o filme clicado. Use os links da Home/Em Breve para ver como o título na URL é carregado!
+                </p>
+                <p style="margin-top: 15px; font-size: 0.9em; color: var(--color-secondary-text);">
+                    **Diretor:** Christopher Nolan | **Lançamento:** 2024
+                </p>
+                <a href="#" class="btn" style="margin-top: 30px;">Comprar Ingressos</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+            <p>&copy; 2024 MovieVerse. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Lógica simples para pegar o título da URL para demonstração
+        const params = new URLSearchParams(window.location.search);
+        const movieTitle = params.get('movie');
+        if (movieTitle) {
+            document.getElementById('movie-detail-title').textContent = decodeURIComponent(movieTitle);
+            document.title = "MovieVerse - " + decodeURIComponent(movieTitle);
+        }
+    </script>
+</body>
+</html>
