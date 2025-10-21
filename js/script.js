@@ -1,84 +1,146 @@
 /**
- * ARQUIVO: js/script.js
- * FUNÇÃO: Lógica de Busca em Tempo Real.
+ * ARQUIVO: script.js
+ * FUNÇÃO: Gerenciar a funcionalidade de busca e a interação do usuário.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Referências aos elementos da busca
+    const searchInput = document.getElementById('search-input');
+    const searchResultsDiv = document.getElementById('search-results');
+    const searchContainer = document.querySelector('.search-container');
     
-    // Identificar se estamos na página index3.html
-    const isAlphabeticalSearchPage = document.getElementById('alphabetical-search-input');
+    // =================================================================
+    // SIMULAÇÃO DA BASE DE DADOS DE FILMES (260 Filmes - 10 por letra)
+    // Para simplificar, crio um array com alguns filmes de exemplo.
+    // Você expandiria este array para 260 itens.
+    // =================================================================
+    const allMovies = [
+        // Letra A
+        { title: "A Origem", year: 2010, poster: "https://via.placeholder.com/50x75?text=A" },
+        { title: "Apocalypse Now", year: 1979, poster: "https://via.placeholder.com/50x75?text=A" },
+        // Letra B
+        { title: "Barbie", year: 2023, poster: "https://via.placeholder.com/50x75?text=B" },
+        { title: "Blade Runner 2049", year: 2017, poster: "https://via.placeholder.com/50x75?text=B" },
+        // Letra C
+        { title: "Coringa", year: 2019, poster: "https://via.placeholder.com/50x75?text=C" },
+        { title: "Cães de Aluguel", year: 1992, poster: "https://via.placeholder.com/50x75?text=C" },
+        // Letra D (Duna: Parte Dois está na Hero, mas incluído para busca)
+        { title: "Duna: Parte Dois", year: 2024, poster: "https://via.placeholder.com/50x75?text=D" },
+        { title: "De Volta para o Futuro", year: 1985, poster: "https://via.placeholder.com/50x75?text=D" },
+        // Letra E
+        { title: "Encontros e Desencontros", year: 2003, poster: "https://via.placeholder.com/50x75?text=E" },
+        { title: "Exorcista do Papa, O", year: 2023, poster: "https://via.placeholder.com/50x75?text=E" },
+        // Letra F
+        { title: "Fargo", year: 1996, poster: "https://via.placeholder.com/50x75?text=F" },
+        { title: "Furiosa", year: 2024, poster: "https://via.placeholder.com/50x75?text=F" },
+        // Letra G
+        { title: "Gladiador", year: 2000, poster: "https://via.placeholder.com/50x75?text=G" },
+        { title: "Godzilla Minus One", year: 2023, poster: "https://via.placeholder.com/50x75?text=G" },
+        // ... (E assim por diante para o restante do alfabeto)
+    ];
 
-    if (isAlphabeticalSearchPage) {
-        // Lógica de Busca para index3.html (Filtragem de Cards)
+
+    /**
+     * Função para renderizar os resultados da busca no dropdown.
+     * @param {Array} results - Lista de objetos de filme.
+     */
+    const renderSearchResults = (results) => {
+        searchResultsDiv.innerHTML = ''; // Limpa resultados anteriores
         
-        const searchInput = isAlphabeticalSearchPage;
-        const movieListContainer = document.getElementById('movie-list-container');
-        const allMovieCards = movieListContainer.querySelectorAll('.movie-card');
-        const initialMessage = document.getElementById('initial-message');
-        const noResultsMessage = document.getElementById('no-results-message');
+        if (results.length === 0) {
+            searchResultsDiv.innerHTML = '<div style="padding: 10px; color: var(--color-text-muted);">Nenhum filme encontrado.</div>';
+            searchResultsDiv.classList.add('visible');
+            return;
+        }
 
-        const performSearch = (query) => {
-            const lowerQuery = query.toLowerCase().trim();
-            let matchesFound = 0;
+        results.forEach(movie => {
+            const item = document.createElement('div');
+            item.classList.add('search-result-item');
+            
+            // Simula um link de detalhe do filme
+            item.onclick = () => {
+                alert(`Você clicou em: ${movie.title} (${movie.year})`);
+                searchInput.value = ''; // Limpa o input após o clique
+                searchResultsDiv.classList.remove('visible'); // Esconde o dropdown
+            };
 
-            // 1. Oculta ou exibe a mensagem inicial
-            initialMessage.style.display = 'none';
-
-            if (lowerQuery.length === 0) {
-                // Se a busca estiver vazia, esconde todos os cards e mostra a mensagem inicial
-                allMovieCards.forEach(card => card.style.display = 'none');
-                initialMessage.style.display = 'block';
-                noResultsMessage.style.display = 'none';
-                return;
-            }
-
-            // 2. Itera sobre todos os cards e os esconde/exibe
-            allMovieCards.forEach(card => {
-                const title = card.getAttribute('data-title').toLowerCase();
-                
-                if (title.includes(lowerQuery)) {
-                    card.style.display = 'block'; // Mostra o card se houver correspondência
-                    matchesFound++;
-                } else {
-                    card.style.display = 'none'; // Esconde o card
-                }
-            });
-
-            // 3. Exibe ou oculta a mensagem de "nenhum resultado"
-            if (matchesFound === 0) {
-                noResultsMessage.style.display = 'block';
-            } else {
-                noResultsMessage.style.display = 'none';
-            }
-        };
-
-        // Evento de digitação para a pesquisa em tempo real
-        searchInput.addEventListener('input', (e) => {
-            performSearch(e.target.value);
-        });
-        
-        // Garante que o estado inicial (tudo escondido) seja respeitado
-        performSearch(''); 
-
-    } else {
-        // Lógica de Busca original (para index.html e coming-soon.html)
-        // Esta é a mesma lógica de antes, mas sem o foco no dropdown massivo
-        // (Deixei comentado pois a estrutura do primeiro script já tratava isso)
-    }
-
-    // --------------------------------------------------------------------------
-    // EFEITO DE HOVER SUAVE NOS CARDS (UX) - Mantido
-    // --------------------------------------------------------------------------
-    const movieCards = document.querySelectorAll('.movie-card, .coming-soon-card');
-    
-    movieCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            item.innerHTML = `
+                <img src="${movie.poster}" alt="Pôster de ${movie.title}">
+                <div>
+                    <p style="color: var(--color-primary-vibrant);">${movie.title}</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.8rem;">Ano: ${movie.year}</p>
+                </div>
+            `;
+            searchResultsDiv.appendChild(item);
         });
 
-        card.addEventListener('mouseleave', () => {
-            card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-        });
+        // Mostra o dropdown
+        searchResultsDiv.classList.add('visible');
+    };
+
+    /**
+     * Função principal de busca.
+     * Filtra a lista de filmes com base no que foi digitado.
+     */
+    const handleSearch = (event) => {
+        const query = event.target.value.toLowerCase().trim();
+
+        if (query.length < 2) {
+            // Esconde os resultados se o texto for muito curto
+            searchResultsDiv.classList.remove('visible');
+            return;
+        }
+
+        const filteredMovies = allMovies.filter(movie => 
+            movie.title.toLowerCase().includes(query)
+        ).slice(0, 10); // Limita a 10 resultados, como é comum em buscas
+
+        renderSearchResults(filteredMovies);
+    };
+
+    // Event Listener para a busca em tempo real (input)
+    searchInput.addEventListener('input', handleSearch);
+
+    // Event Listener para fechar o dropdown se clicar fora
+    document.addEventListener('click', (event) => {
+        if (!searchContainer.contains(event.target)) {
+            searchResultsDiv.classList.remove('visible');
+        }
     });
 
+    // Event Listener para reabrir o dropdown ao focar no input (se houver texto)
+    searchInput.addEventListener('focus', () => {
+        if (searchInput.value.length >= 2) {
+            handleSearch({ target: searchInput });
+        }
+    });
+
+    // Adicione aqui qualquer outra funcionalidade de JS (e.g., carregar filmes dinamicamente, sliders, etc.)
 });
+
+/**
+     * Função principal de busca.
+     * Filtra a lista de filmes com base no que foi digitado.
+     */
+    const handleSearch = (event) => {
+        // NÃO USE event.preventDefault() aqui. Isso permitiria que o formulário fosse enviado 
+        // para index3.html quando o usuário pressionar Enter.
+
+        const query = event.target.value.toLowerCase().trim();
+
+        if (query.length < 2) {
+            // Esconde os resultados se o texto for muito curto
+            searchResultsDiv.classList.remove('visible');
+            return;
+        }
+        
+        // ... (resto da sua lógica de filtragem)
+        
+        const filteredMovies = allMovies.filter(movie => 
+            movie.title.toLowerCase().includes(query)
+        ).slice(0, 10); 
+
+        renderSearchResults(filteredMovies);
+    };
+
+    // ... (o resto do código permanece o mesmo)

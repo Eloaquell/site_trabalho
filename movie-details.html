@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="detail-page-title">MovieVerse - Detalhes do Filme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-hero {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            margin-bottom: 50px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .detail-hero .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.1) 0%, rgba(18, 18, 18, 0.9) 100%);
+            z-index: 5;
+        }
+
+        .detail-info {
+            z-index: 10;
+            max-width: 800px;
+            background: rgba(18, 18, 18, 0.8);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--color-primary-vibrant);
+        }
+        
+        .detail-info h1 {
+            font-size: 3rem;
+            color: var(--color-primary-vibrant);
+            margin-bottom: 5px;
+        }
+        
+        .trailer-section {
+            margin-top: 40px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 3px solid var(--color-secondary-accent);
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.5); /* Efeito neon */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .detail-hero {
+                height: 40vh;
+                padding: 20px;
+            }
+            .detail-info h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <span class="logo-text"><i class="fas fa-satellite-dish"></i> MovieVerse</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="index2.html">Em Breve</a>
+        </nav>
+        <form class="search-container" action="index3.html" method="GET">
+            <input type="text" placeholder="Buscar filmes..." class="search-input" name="q">
+            <button type="submit" class="search-submit-button" aria-label="Buscar">
+                <i class="fas fa-search search-icon"></i>
+            </button>
+        </form>
+    </header>
+
+    <main class="container">
+        <section class="detail-hero" id="movie-detail-hero" style="background-image: url('https://via.placeholder.com/1200x600?text=Poster+do+Filme+Detalhe')">
+            <div class="hero-overlay"></div>
+            
+            <div class="detail-info">
+                <h1 id="movie-title">Título do Filme</h1>
+                <p id="movie-release-date" style="color: var(--color-secondary-accent); font-weight: 600;">Data de Lançamento: DD/MM/AAAA</p>
+                <p id="movie-synopsis" style="margin-top: 15px;">Sinopse detalhada do filme...</p>
+                <p id="movie-cast" style="margin-top: 10px; font-size: 0.9rem;">Elenco Principal: </p>
+            </div>
+        </section>
+
+        <section class="trailer-section">
+            <h2 class="section-title">Assista ao Trailer</h2>
+            <div class="video-container">
+                <iframe 
+                    id="movie-trailer-frame"
+                    title="Trailer do Filme"
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1&rel=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 MovieVerse. Todos os direitos reservados. | Design Futurista</p>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JAVASCRIPT PARA POPULAR A PÁGINA DE DETALHES
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const rawTitle = urlParams.get('title');
+
+            const movieData = {
+                "Coringa-Delirio-a-Dois": {
+                    poster: 'https://via.placeholder.com/1200x600?text=Coringa+2+Banner',
+                    date: "04 de Outubro de 2024",
+                    synopsis: "Após os eventos chocantes do primeiro filme, Arthur Fleck, agora o Coringa, encontra sua alma gêmea na forma de Harleen Quinzel (Arlequina) no Asilo Arkham. O filme promete ser um musical sombrio e ousado.",
+                    cast: "Joaquin Phoenix, Lady Gaga, Zazie Beetz",
+                    trailerId: "dQw4w9WgXcQ" // ID de um trailer de exemplo (Rick Roll)
+                },
+                "Deadpool-e-Wolverine": {
+                    poster: 'https://via.placeholder.com/1200x600?text=Deadpool+Wolverine+Banner',
+                    date: "26 de Julho de 2024",
+                    synopsis: "O Mercenário Tagarela é puxado para o TVA e deve se unir a um Wolverine relutante para salvar o multiverso, misturando humor ácido e ação desenfreada no universo Marvel.",
+                    cast: "Ryan Reynolds, Hugh Jackman, Emma Corrin",
+                    trailerId: "u_C4uXzN99g" // ID de um trailer de exemplo (Deadpool)
+                },
+                "Furiosa-Uma-Saga-Mad-Max": {
+                    poster: 'https://via.placeholder.com/1200x600?text=Furiosa+Banner',
+                    date: "23 de Maio de 2024",
+                    synopsis: "A história de origem da Imperatriz Furiosa, desde sua captura do Lugar Verde de Muitas Mães, até sua luta para encontrar o caminho de casa no Wasteland.",
+                    cast: "Anya Taylor-Joy, Chris Hemsworth, Tom Burke",
+                    trailerId: "vBqJ70X_5p0" // ID de um trailer de exemplo (Furiosa)
+                }
+                // Adicionar mais filmes aqui...
+            };
+
+
+            if (rawTitle) {
+                const cleanTitle = rawTitle.replace(/-/g, ' ');
+                const movie = movieData[rawTitle];
+                
+                document.getElementById('detail-page-title').textContent = `MovieVerse - ${cleanTitle}`;
+                document.getElementById('movie-title').textContent = cleanTitle;
+
+                if (movie) {
+                    document.getElementById('movie-detail-hero').style.backgroundImage = `url('${movie.poster}')`;
+                    document.getElementById('movie-release-date').textContent = `Data de Lançamento: ${movie.date}`;
+                    document.getElementById('movie-synopsis').textContent = movie.synopsis;
+                    document.getElementById('movie-cast').textContent = `Elenco Principal: ${movie.cast}`;
+                    document.getElementById('movie-trailer-frame').src = `https://www.youtube.com/embed/${movie.trailerId}?autoplay=0&controls=1&rel=0`;
+                } else {
+                    document.getElementById('movie-release-date').textContent = "Detalhes não disponíveis.";
+                    document.getElementById('movie-synopsis').textContent = `Detalhes detalhados não encontrados para o filme "${cleanTitle}".`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
