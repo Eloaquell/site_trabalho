@@ -48,6 +48,32 @@ document.addEventListener('DOMContentLoaded', () => {
         // ... adicione aqui o restante dos 260 filmes
     ];
 
+  const movieData = {
+                // Certifique-se de que os nomes correspondem aos links em 'coming-soon.html'
+                "Coringa-Delirio-a-Dois": {
+                    poster: 'https://youtu.be/sHG2sAi2R-s?si=https://youtu.be/ytQGoT4pUiM?si=Vc4NBdulR0lITFhr',
+                    date: "04 de Outubro de 2024",
+                    synopsis: "Após os eventos chocantes do primeiro filme, Arthur Fleck, agora o Coringa, encontra sua alma gêmea na forma de Harleen Quinzel (Arlequina) no Asilo Arkham. O filme promete ser um musical sombrio e ousado.",
+                    cast: "Joaquin Phoenix, Lady Gaga, Zazie Beetz",
+                    // ID DO TRAILER DO YOUTUBE. Exemplo: "dQw4w9WgXcQ"
+                    trailerId: "u_C4uXzN99g" // <--- Exemplo: ID de um trailer real ou placeholder
+                },
+                "Deadpool-e-Wolverine": {
+                    poster: 'https://via.placeholder.com/1200x600?text=Deadpool+Wolverine+Banner',
+                    date: "26 de Julho de 2024",
+                    synopsis: "O Mercenário Tagarela é puxado para o TVA e deve se unir a um Wolverine relutante para salvar o multiverso, misturando humor ácido e ação desenfreada no universo Marvel.",
+                    cast: "Ryan Reynolds, Hugh Jackman, Emma Corrin",
+                    trailerId: "x0G9jW78_b0" // <--- Exemplo: ID de outro trailer
+                },
+                "Furiosa-Uma-Saga-Mad-Max": {
+                    poster: 'https://via.placeholder.com/1200x600?text=Furiosa+Banner',
+                    date: "23 de Maio de 2024",
+                    synopsis: "A história de origem da Imperatriz Furiosa, desde sua captura do Lugar Verde de Muitas Mães, até sua luta para encontrar o caminho de casa no Wasteland.",
+                    cast: "Anya Taylor-Joy, Chris Hemsworth, Tom Burke",
+                    trailerId: "OT9kS_R4_eQ" // <--- Exemplo: ID de outro trailer
+                }
+                // ADICIONE AQUI OS DADOS DOS SEUS OUTROS FILMES
+            };
 
     /**
      * Função para renderizar os resultados da busca no dropdown.
